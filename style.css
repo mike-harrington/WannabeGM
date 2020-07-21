@@ -6,6 +6,7 @@ body {
 }
 h1 {
  color: #FFFF33;
+ background-color: #333300;
  text-align: center;
  font: italic 200% fantasy;
 }
@@ -14,4 +15,35 @@ p {
  color: #333300;
  text-align: right;
  border: 3px groove #FFFF33;
+}
+
+.nhldates
+{
+	width: 700px;
+	top: 0;
+	right: 20;
+	box-shadow: 0 0 10px #3358ff;
+	padding-left: 50px;
+
+}
+
+.rankings
+{
+
+	padding: 15px;
+
+}
+
+.lottery
+{
+	padding: 15px;
+
+}
+
+.nonkeeper
+{
+	padding: 15px;
+	bottom: 0;
+	left: 0;
+	text-align: left;
 }
