@@ -1,0 +1,128 @@
+
+/* style.css */
+*
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+ background-image: url(hockeybackground1.jpg);
+ background-size: cover ;
+ background-position: center;
+ color: #fff;
+ text-decoration: none;
+ }
+h1 {
+ color: #FFFF33;
+ background-color: #66756a;
+ text-align: center;
+ font: italic 200% fantasy;
+}
+p {
+ background-color: #36454F;
+ color: #EAC117;
+ text-align: center;
+ border: 3px groove #36454F;
+ box-sizing: border-box;
+ width: 550px;
+}
+
+.nhldates
+{
+	width: 700px;
+	top: 0;
+	right: 20;
+	box-shadow: 0 0 10px #3358ff;
+	padding-left: 50px;
+
+}
+
+.rankings
+{
+
+	padding: 15px;
+
+}
+
+.lottery
+{
+	padding: 15px;
+
+}
+
+.nonkeeper
+{
+	padding: 15px;
+	bottom: 0;
+	left: 0;
+	text-align: left;
+	color: #fff;
+}
+
+.menu-bar
+{
+	background: rgb(50, 50, 50, 1.0);
+	text-align: center;
+}
+
+.menu-bar ul
+{
+	display: inline-flex;
+	list-style: none;
+	color: #fff;
+}
+
+.menu-bar ul li
+{
+	width: 200px;
+	margin: 15px;
+	padding: 15px;
+}
+
+.menu-bar ul li a
+{
+	text-decoration: none;
+	color: #fff ;
+}
+.active, .menu-bar ul li:hover
+{
+	background: #2bab0d;
+	border-radius: 3px;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
