@@ -7,7 +7,7 @@
 	box-sizing: border-box;
 }
 body {
- background-image: url(hockeybackground1.jpg);
+ background-image: url(hockeybackground4.jpg);
  background-size: cover ;
  background-position: center;
  color: #fff;
@@ -19,8 +19,16 @@ h1 {
  text-align: center;
  font: italic 200% fantasy;
 }
+h4 {
+ color: #3A3B3C;
+ text-align: center;
+ font: italic 200% fantasy;
+ width: 25%;
+ padding-left: 5%;
+
+}
 p {
- background-color: #36454F;
+ background-color: #3A3B3C;
  color: #EAC117;
  text-align: center;
  border: 3px groove #36454F;
@@ -93,18 +101,18 @@ p {
 
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+
+  background-color: transparent;
 }
 
 /* Style the buttons inside the tab */
 .tab button {
-  background-color: inherit;
-  float: left;
+  background-color: transparent;
+  float: center;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 10px 16px;
   transition: 0.3s;
   font-size: 17px;
 }
