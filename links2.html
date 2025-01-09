@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="Wannabe A GM League site" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="style.css"> <!-- Link to main stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="text-center my-4">
+        <h1>WannabeGM Links Page</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="links.html">Links</a></li>
+                    <li class="nav-item"><a class="nav-link" href="keepers.html">Keepers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fame.html">Hall of Fame</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h5 class="my-4"><a href="https://hockey.fantasysports.yahoo.com/hockey/8000" target="_blank" class="text-decoration-none">Yahoo Site Link: Wannabe a GM - Season 21</a></h5>
+
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'ramble')"><b><i>Ramblings</i></b></button>
+            <button class="tablinks" onclick="openCity(event, 'goalies')">Starting Goalies</button>
+            <button class="tablinks" onclick="openCity(event, 'lines')">Line Combos/Updates</button>
+            <button class="tablinks" onclick="openCity(event, 'roster')">Roster/Salaries</button>
+            <button class="tablinks" onclick="openCity(event, 'rumours')">Rumours</button>
+        </div>
+        
+        <br>
+        
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'scores')">Scores</button>
+            <button class="tablinks" onclick="openCity(event, 'news')">General News</button>
+            <button class="tablinks" onclick="openCity(event, 'streams')">Streams</button>
+            <button class="tablinks" onclick="openCity(event, 'other')">Other</button>
+        </div>
+        
+        <div id="ramble" class="tabcontent">
+            <h4><a href="https://dobberhockey.com/" target="_blank">DobberHockey Main Page</a></h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="goalies" class="tabcontent">
+            <h4>
+                <a href="https://goaliepost.com/" target="_blank">Goalie Post - Starting Goalies</a><br>
+                <a href="https://leftwinglock.com/starting-goalies/" target="_blank">LeftWingLock - Starting Goalies</a><br> 
+                <a href="https://www.dailyfaceoff.com/starting-goalies" target="_blank">Daily Faceoff - Starting Goalies</a><br>
+                <a href="https://www.rotowire.com/hockey/starting-goalies.php" target="_blank">Rotowire - Starting Goalies</a><br>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="roster" class="tabcontent">
+            <h4>
+                <a href="https://puckpedia.com/" target="_blank">PuckPedia NHL Updates + Roster Salaries</a><br>
+                <a href="https://capwages.com/" target="_blank">CapWages Roster/Salaries</a><br>
+                <a href="https://www.quanthockey.com/" target="_blank">Quant Hockey - Hockey Stats</a><br>
+                <a href="https://www.hockey-reference.com/leagues/stats.html" target="_blank">Hockey Reference Stats</a>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="rumours" class="tabcontent">
+            <h4>
+                <a href="http://www.spectorshockey.net/" target="_blank">Spectors</a><br>
+                <a href="https://nhlrumors.com/" target="_blank">NHLRumors</a><br>
+                <a href="https://www.prohockeyrumors.com/" target="_blank">Pro Hockey Rumors</a><br>
+                <a href="https://www.nhltraderumors.me/" target="_blank">NHL Trade Rumors.me</a><br>
+                <a href="https://www.prosportsdaily.com/nhl/nhl-rumors.html" target="_blank">ProSports Daily</a><br>
+                <a href="https://thehockeywriters.com/" target="_blank">The Hockey Writers - Hockey Ramblings and Rumours</a><br>
+                <a href="https://www.hockeybuzz.com/" target="_blank">Eklund Hockey Buzz</a>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="scores" class="tabcontent">
+            <h4>
+                <a href="https://www.nhl.com/scores" target="_blank">NHL.com - Scores site</a><br>
+                <a href="https://sports.yahoo.com/nhl/scoreboard/" target="_blank">Yahoo Sports - Scores site</a><br>
+                <a href="https://www.espn.com/nhl/scoreboard" target="_blank">ESPN Scoreboard</a><br>
+                <a href="https://www.hockey-reference.com/boxscores/" target="_blank">Hockey Reference - Boxscores</a>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="news" class="tabcontent">
+            <h4>
+                <a href="https://www.nhl.com/" target="_blank">NHL.com - General Hockey News</a><br>
+                <a href="https://www.tsn.ca/nhl" target="_blank">TSN Hockey Section - General Hockey News</a><br>
+                <a href="https://www.gamedaytweets.com/">GameDay Tweets News/Updates</a><br>
+                <a href="https://www.sportsnet.ca/hockey/nhl/" target="_blank">Sportsnet Hockey Section - General Hockey News</a><br>
+                <a href="https://www.cbssports.com/nhl/" target="_blank">CBS Sports Hockey Section - General Hockey News</a><br>
+                <a href="https://www.cbc.ca/sports/hockey" target="_blank">CBC Hockey News</a>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="streams" class="tabcontent">
+            <h4>
+                <a href="http://nhlbite.com/" target="_blank">NHL Bite reddit NHL streams</a><br>
+                <a href="https://www.redditsports.stream/nhlstreams" target="_blank">Reddit Sports Streams</a><br>
+                <a href="http://markkystreams.com/" target="_blank">MarkkyStreams online game links</a><br>
+                <a href="http://nhl66.ir" target="_blank">NHL66 online game links</a><br>
+                <a href="http://Streameast.live" target="_blank">StreamEast online game links</a><br>
+                <a href="http://nhlbite.com/" target="_blank">NHLBite online game links</a><br>
+                <a href="https://onhockey.tv" target="_blank">Onhockey.tv online game links</a><br>
+                <a href="https://www.thestreameast.to/abac-nhl-streams/" target="_blank">StreamEast Online game links</a>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+
+        <div id="other" class="tabcontent">
+            <h4>
+                <a href="https://www.kkupfl.com/tools" target="_blank">Keeping Karlsson Fantasy Hockey Tools</a><br>
+                <a href="https://www.fantasyhockeyhq.com/" target="_blank">Fantasy Hockey HQ</a><br>
+                <a href="https://www.fantasypros.com/nhl/rankings/overall.php" target="_blank">Fantasy Pros NHL Rankings</a><br>
+                <a href="https://www.fantraxhq.com/" target="_blank">Fantrax</a><br>
+                <a href="https://www.hockeyinsider.com/" target="_blank">Hockey Insider</a><br>
+            </h4>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+    </main>
+
+    <footer class="text-center my-4">
+        <p>© 2024 WannabeGM Fantasy Hockey League</p>
+    </footer>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
