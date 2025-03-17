@@ -1,247 +1,142 @@
 <!DOCTYPE html>
-<html lang = "en-US">
-
+<html lang="en">
 <head>
-<meta name="Wannabe A GM League site" content="width=device-width, initial-scale=1">
-<meta charset = "UTF-8">
- 
- <link rel="stylesheet" href="style2.css">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WannabeGM Hockey League</title>
+    <link rel="stylesheet" href="hockey-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1> WannabeGM League Page </h1>
-  <div class="menu-bar">
-  <ul>
-  <li class="active"><a href="index.html"> Home</li></a>
-  <li><a href="links.html"> Links</li></a>
-  <li><a href="keepers.html"> Keepers</li></a>
-  <li><a href="media.html"> Media</li></a>
-  <li><a href="fame.html"> Hall of Fame</li></a>
-</ul>
-</div>
-<!--
+    <header>
+        <div class="container">
+            <h1 class="logo">WannabeGM Hockey League</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="links.html">Links</a></li>
+                    <li><a href="keepers.html">Keepers</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="halloffame.html">Hall of Fame</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<table>
-<h1> WannabeGM League Page </h1>
-  <hr>
-  <nav>
-  <table cellspacing="5" cellpadding="5">
-  <tr>
-  <td><a href="index.html"> Home</td></a>
-  <td><a href="links.html">< Links</td></a>
-  <td><a href="keepers.html"> Keepers</td></a>
-  <td><a href="fame.html"> Hall of Fame</td></a>
-</tr>
-</table>
-</nav>
--->
+    <section class="hero">
+        <div class="container">
+            <h2>
+            <a href="https://hockey.fantasysports.yahoo.com/hockey/8000" target="_blank">Yahoo Site Link: Wannabe a GM - Season 21</a><br></h2>
+            
+        </div>
+    </section>
 
-                <h2><font color="#fff"><a href="https://hockey.fantasysports.yahoo.com/hockey/8000" target="_blank"> Wannabe a GM - Season 21 </h2></font></a>
-                	
-                <br><br>
-
-                <b><font color="#3A3B3C">NHL Dates:<br></b></b><font>
-				<font color="green">
-
-			    <b><strike>Sep 28 – WANNABEGM DRAFT DAY (hosted at the Blakely Compound location)<br>
-				<b>Oct 04 – NHL Regular Season Begins (Global Series, Czech Republic)<br><br></b></strike>
-				
-				<font color="#3A3B3C">-----------------<br>
-				<br><b>
-
-				Dec 31 – NHL Winter Classic (Wrigley Field - St.Louis vs Chicago)<br>
-				Jan 18 – Scotiabank Hockey Day in Canada<br>
-				Feb 10-21 – 4 Nations Face-off Tournament<br>
-				Mar 01 – NHL Stadium Series (Ohio Stadium - Detroit vs Columbus)<br><br>
-			
-				Mar 08 – NHL Trade Deadline <br>
-				Apr 17 - End of Regular Season <br>
-				Apr xx – Start Of Playoffs<br>
-                </font></font></b>
+    <main class="content">
+        <div class="container">
+            <section class="commish-notes">
+                <h2>Commissioner’s Bulletin</h2>
+                <p>April 17: End of Regular Season</p>
+                <p>April 18 - June 9: NHL Playoffs</p>
                 <br>
-				
-                <br>top ranking GM within wagers wins the whole pot<br>
-                <i>*if tied, random public draw for which category will be the deciding factor will be held<br></i><br>
-                All GMs participating in the wagering will be added to the 2024-25 draft lottery for draft positioning. Those not participating will keep their end of year rank<br>
-                <i>Current GM Wager Monies: <b>$120</b><br></i>
+                <p>TBD: Summer Draft Lotto Event</p>
+                <p>TBD: 2025-26 Fantasy Season Keeper Deadline</p>
+                <p>TBD: 2025-26 Draft Day</p>
                 <br><br>
-                
-              
-               	<h2> Final 2023-2024 Rankings</h2>
-				<b><font size="+1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-trophy"></i>
-				1st Place <i class="fa fa-trophy"></i> <br>&nbsp&nbsp&nbsp&nbsp League Champion:(1!)<br></font><font face="Verdana Bold Italic" size="+2"> &nbsp&nbsp&nbsp&nbsp&nbsp	Duggan <br></b></font><br>
-				<i class="fa fa-certificate"></i>
-				<i>2nd(!): &nbsp&nbsp	 Duncan<br></i>
-				<i class="fa fa-certiexaficate"></i>
-				3rd(!): &nbsp&nbsp	 Harrington <br>
-				4th(!):&nbsp&nbsp  Maran <br>
-				5th(!):&nbsp&nbsp  Mulvihill <br>
-				6th(!):&nbsp&nbsp  Symmington <br>
-				7th(!):&nbsp&nbsp  Kevin <br>
-				8th:&nbsp&nbsp  Martin <br>
-				9th:&nbsp&nbsp  Patrick <br>
-				10th:&nbsp&nbsp Jadrian   <br>
-				11th:&nbsp&nbsp Egan <br>
-				12th(!):&nbsp&nbsp Kurtis <br>
-				<i class="fa fa-street-view"></i>
-				Last:&nbsp&nbsp Anthony <br>
-<br><br>-->
+                <p>*Summer Super Keeper Trades No Longer Available; Sophomore and Rookie Trades Still Active</p>
+            </section>
 
+            <section class="standings">
+                <h2>League Standings</h2>
+                <button id="refresh-standings">Update Standings -- N/A</button>
+                <table id="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Puck Chuckers</td><td>8</td><td>2</td><td>16</td></tr>
+                        <tr><td>Ice Holes</td><td>6</td><td>4</td><td>12</td></tr>
+                        <tr><td>Stick Benders</td><td>4</td><td>6</td><td>8</td></tr>
+                        <tr><td>Goalie Gurus</td><td>2</td><td>8</td><td>4</td></tr>
+                    </tbody>
+                </table>
+                <br><br>
+                <h2>Pay League Standings</h2>
+                                <table id="payleague-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Pay Rank</th>
+                            <th>League Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pierre</td><td>1</td><td>1</td></tr>
+                        <tr><td>Harrington</td><td>2</td><td>3</td></tr>
+                        <tr><td>Egan</td><td>3</td><td>4</td></tr>
+                        <tr><td>Duggan</td><td>4</td><td>5</td></tr>
+                        <tr><td>Mulvihill</td><td>5</td><td>7</td></tr>
+                        <tr><td>Maran</td><td>6</td><td>9</td></tr>
+                        <tr><td>Cooper</td><td>7</td><td>LAST</td></tr>
+                    </tbody>
+                </table>
+                <p>Pay League Prize: $120</p>
 
-<!--<a class="twitter-timeline" href="https://twitter.com/WannabeGMs?ref_src=twsrc%5Etfw" data-tweet-limit=4>Tweets by WannabeGMs</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>   <br>
--->
+            </section>
 
+            <section class="articles">
+                <h2>League Buzz</h2>
+                <div class="article-list">
+                    <a href="article1.html" class="article-card">
+                        <h3>Article Spot 1 - TDB</h3>
+                        <p class="date">March 16, 2025</p>
+                        <p>With Crosby firing on all cylinders, the Chuckers crushed Stick Benders...</p>
+                    </a>
+                    <a href="article2.html" class="article-card">
+                        <h3>Article Spot 2 - TDB</h3>
+                        <p class="date">March 15, 2025</p>
+                        <p>Dave traded McDavid for a case of IPA—Mike’s laughing all the way...</p>
+                    </a>
+                    <a href="article3.html" class="article-card">
+                        <h3>Article Spot 3 - TDB</h3>
+                        <p class="date">March 14, 2025</p>
+                        <p>Too many vetoes this week—play fair or face the penalty box...</p>
+                    </a>
+                </div>
+            </section>
 
+            <section class="news-ticker">
+                <p><strong>Latest:</strong> Pierre Loses EUGE lead and now has Patrick hot on his heels</p>
+            </section>
+        </div>
+    </main>
 
-		
-			<!--Time in 1st (Best effort monitoring!) - as of Oct 31,2022<br>
-			<img src="./2022-timein1.png"><br>
-             -->
+    <footer>
+        <p>© 2025 WannabeGM Fantasy Hockey League. Skate or be skated.</p>
+    </footer>
 
+    <script>
+        document.getElementById('refresh-standings').addEventListener('click', function() {
+            const dummyStandings = [
+                { team: "Puck Chuckers", wins: 9, losses: 2, points: 18 },
+                { team: "Ice Holes", wins: 6, losses: 5, points: 12 },
+                { team: "Stick Benders", wins: 5, losses: 6, points: 10 },
+                { team: "Goalie Gurus", wins: 3, losses: 8, points: 6 }
+            ];
 
-				<b><u>Summer Trades for 2022-23 Season:<br><i></i></u>
-				*Only Draft Picks and 'Keepers' can be traded. Traded 'Keepers' must be retained as a keeper for the upcoming year<br><br>
-				<!--<b><u><font color="red">--Summer Trade #1 </font></u></b><br>
-				To Kurtis: Andrei Vasilevskiy (Super Keeper) + Connor McMichael (Rookie Keeper) + R16(Duggan) + R17(Kurtis) <br>
-				To Duggan: R8(Kurtis) + R16(Kurtis)--<br><br>
-				<b><u><font color="red">--Summer Trade #2 </font></u></b><br>
-				To Symmington: Cole Sillinger (Rookie Keeper) + Vasily Podkolzin (Rookie Keeper) + R16(Harrington)<br>
-				To Harrington: R13(Symmington)--<br><br>
-				<b><u><font color="red">--Summer Trade #3 </font></u></b><br>
-				To Anthony: Jason Robertson (Sophomore Keeper) + R12(Maran)<br>
-				To Maran: R8(Anthony)--<br><br>
-				-->
-			<br><br>
-				<font color="#3A3B3C"><b><u>2024-25 WANNABE GMs and Draft Order<br></u></b></font>
-         
-                <b><font color="blue">(06) Anthony</b><br></font>		
-                <b><font color="green">(14) Chris 'Mini' Cooper</b><br></font>
-                <b><font color="green">(11) Duggan</b><br></font>	
-                <b><font color="blue">(04) Duncan</b><br></font>	
-                <b><font color="green">(13) Egan</b><br></font>
-				<b><font color="green">(05) Harrington</b><br></font>
-				<b><font color="blue">(12) Jadrian</b><br></font>
-				<b><font color="blue">(02) Josef</b><br></font>
-				<b><font color="blue">(09) Kevin</b><br></font>
-				<b><font color="green">(03) Maran</b><br></font>
-				<b><font color="blue">(10) Martin</b><br></font>
-				<b><font color="green">(07) Mulvihill</b><br></font>
-				<b><font color="blue">(15) Patrick</b><br></font>
-				<b><font color="green">(01) Pierre Dalcourt</b><br></font>
-				<b><font color="blue">(08) Symmington</b><br></font>
-				
-				
-				
-
-				<br>
-				<i>*Confirmed Pay League GMs in Green</i>
-			    
-			
-				<br><br>
-
-	
-
-<!--
-<br><br>
-<h1><b><u>2022-23 Potential Rookies (alphabetical)</u></b></h1>
-TBD
-<b>**Rookie Keeper thresholds do not change with the shortened season - 25 games for a player, 20 GS for tenders</b>
-<br><b>**Draft day 2021-22 will follow the final standings of the 2020-21 season</b>
-<br>
-<br><br>
--->
-<!--
-<h1><b><u>Awards 2022-23:</u></b></h1>
-<br><br>
-<img src="paper-tiger_reduced.jpeg" alt="Best Drafted Team as per Yahoo Draft Room">
-Paper Tiger (Best drafted team as per yahoo in draft room): <b>Jadrian</b><br>
-<img src="big lebowski_reduced.jpeg" alt="First to Pay GM Wager">
-The Big Lebowski (First to pay GM wager): <b> Egan</b><br>
-T-Rex Arms (Last to pay GM wager): <b> </b><br>
-First Snipe of the Fantasy Year: <b> Symmington (Niederreiter)<br></b>
-First Apple of the Fantasy Year: <b> Anthony (Granlund) + Egan (Forberg - 2nd assist)<br></b>
-First GWG of the Fantasy Year: <b> Symmington (Niederreiter)<br></b>
-First PPP of the Fantasy Year: <b> Jadrian (Stamkos) + Assists: Harrington (Kucherov) & Egan (Point) <br></b>
-First SHP of the Fantasy Year: <b> Jadrian (Zibanejad) + Assists: Martin (Trouba) & Symmington (Miller) </b><br>
-First W of the Fantasy Year: <b> Harrington (Saros)<br></b>
-First SO of the Fantasy Year: <b> Harrington (Thompson)<br></b>
-First Missed SO of the Fantasy year: <b> Patrick (Reimer)<br></b>
-First Goalie Pulled of the Fantasy Year: <b> Symmington (Fleury)</b> <br>
-First Major Penalty of the Fantasy Year: <b> Harrington (Borowiecki)<br></b>
-First Hat Trick of the Fantasy Year: <b> Mulvihill (McDavid)<br></b>
-First GWG/SHG of the Fantasy Year:<b> </b><br>
-First Double SO Night of the Fantasy Year: <b></b><br>
-All The Hops (Most Fantasy Points Gained In a Day): <b> Mulvihill (59) *first week -- after 2 weeks:  </b><br>
-Best Team Name:<br>
-Best Avatar:<br>
-Most trades: <br>
-Worst trade: <br>
-The What Have I Done!? (GM with the Worst drop to FA): <br>
-The Infirmary (GM most hit by injuries): <br>
-Worst 3rd Round Draft Pick: <br>
-Best 13th Round Draft Pick: <br>
-<i>**Suggestions welcome for additional Awards!</i>
--->
-<br>
-
-
-<!--
-<h1><b><u>Awards 2021-22:</u></b></h1>
-<br><br>
-<img src="paper-tiger_reduced.jpeg" alt="Best Drafted Team as per Yahoo Draft Room">
-Paper Tiger (Best drafted team as per yahoo in draft room): <b>Duggan</b><br>
-<img src="big lebowski_reduced.jpeg" alt="First to Pay GM Wager">
-The Big Lebowski (First to pay GM wager): <b>Mulvihill</b><br>
-T-Rex Arms (Last to pay GM wager): <b>Patrick</b><br>
-First Snipe of the Fantasy Year: <b>Anthony Cirelli (Mulvihill)<br></b>
-First Apple of the Fantasy Year: <b>Jeff Carter (Anthony)<br></b>
-First GWG of the Fantasy Year: <b>Chandler Stephenson (Blakely/Martin)<br></b>
-First PPP of the Fantasy Year: <b>TJ Oshie (Duncan), Alex Ovechkin (Symmington), Evgeny Kuznetsov (Blakely/Martin)<br></b>
-First SHP of the Fantasy Year: <b>Alex Ovechkin (Symmington), Evgeny Kuznetsov (Blakely/Martin)</b><br>
-First W of the Fantasy Year: <b>Robin Lehner (Jadrian)<br></b>
-First SO of the Fantasy Year: <b>Jacob Markstrom (Mulvihill)<br></b>
-First Missed SO of the Fantasy year: <b>Adin Hill (Kurtis)<br></b>
-First Goalie Pulled of the Fantasy Year: <b>Petr Mrazek (Kevin)</b> <br>
-First Major Penalty of the Fantasy Year: <b>Vince Dunn (Kevin)<br></b>
-First Hat Trick of the Fantasy Year: <b>Tyler Bertuzzi (Anthony)<br></b>
-First GWG/SHG of the Fantasy Year:<b>Zack Hyman (Jadrian)</b><br>
-First Double SO Night of the Fantasy Year: <b></b><br>
-Best Team Name:<br>
-Best Avatar:<br>
-Most trades: <br>
-Worst trade: <br>
-The What Have I Done!? (GM with the Worst drop to FA): <br>
-The Infirmary (GM most hit by injuries): <br>
-Worst 3rd Round Draft Pick: <br>
-Best 13th Round Draft Pick: <br>
-<i>**Suggestions welcome for additional Awards!</i>
-<br><br>
-
-<br><br>
-
-<-->
-
-<br><br>
-
-
-
-<a class="twitter-timeline" href="https://twitter.com/WannabeGMs?ref_src=twsrc%5Etfw">Tweets by WannabeGMs</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br>
-
-
-<br><br>
-
-
-
-**This is website 1.0, will look to put a bit of time at some point to move it to 2.0 and a few other things ... and stuff
-
-
-
-<!--<a href="https://v2.waitwhile.com/l/mrbigdeals/list-view" target="_blank">mgd waitlist 416-292-3481 2115 Midland</a><br> -->
-    
-
-
+            const tbody = document.querySelector('#standings-table tbody');
+            tbody.innerHTML = '';
+            dummyStandings.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${row.team}</td><td>${row.wins}</td><td>${row.losses}</td><td>${row.points}</td>`;
+                tbody.appendChild(tr);
+            });
+            alert('Standings updated! (Dummy data - see Yahoo API notes)');
+        });
+    </script>
 </body>
-
-
 </html>

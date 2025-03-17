@@ -1,183 +1,141 @@
 <!DOCTYPE html>
-<html lang = "en-US">
-
+<html lang="en">
 <head>
-<meta name="Wannabe A GM League site" content="width=device-width, initial-scale=1">
-<meta charset = "UTF-8">
- 
- <link rel="stylesheet" href="style2.css">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WannabeGM Hockey League</title>
+    <link rel="stylesheet" href="hockey-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1> WannabeGM Links Page </h1>
-  <div class="menu-bar">
-  <ul>
-  <li> <a href="index.html"> Home</li></a>
-  <li class="active"><a href="links.html"> Links</li></a>
-  <li><a href="keepers.html"> Keepers</li></a>
-  <li><a href="media.html"> Media</li></a>
-  <li><a href="fame.html"> Hall of Fame</li></a>
-</ul>
-</div>
+    <header>
+        <div class="container">
+            <h1 class="logo">WannabeGM Hockey League</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="keepers.html">Keepers</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="fame.html">Hall of Fame</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<br>
-                <h5><font size="+3"><font color="#3A3B3C"><b><a href="https://hockey.fantasysports.yahoo.com/hockey/8000" target="_blank"> Yahoo Site Link: Wannabe a GM - Season 21 </font></h2></a>
-                <br><br></b>
+    <section class="hero">
+        <div class="container">
+            <h2>
+            <a href="https://hockey.fantasysports.yahoo.com/hockey/8000" target="_blank">Yahoo Site Link: Wannabe a GM - Season 21</a><br></h2>
+            
+        </div>
+    </section>
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'ramble')"><b><i>Ramblings</button></b></i>
-  <button class="tablinks" onclick="openCity(event, 'goalies')">Starting Goalies</button>
-  <button class="tablinks" onclick="openCity(event, 'lines')">Line Combos/Updates</button>
-  <button class="tablinks" onclick="openCity(event, 'roster')">Roster/Salaries</button>
-  <button class="tablinks" onclick="openCity(event, 'rumours')">Rumours</button>
-
-
-</div>
-<br><br><br><br>
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'scores')">Scores</button>
-  <button class="tablinks" onclick="openCity(event, 'news')">General News</button>
-  <button class="tablinks" onclick="openCity(event, 'streams')">Streams</button>
-  <button class="tablinks" onclick="openCity(event, 'other')">Other</button>
-</div>
-<div id="ramble" class="tabcontent">
-<h4><a href="https://dobberhockey.com/" target="_blank"> DobberHockey Main Page</a><br></h4>
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="goalies" class="tabcontent">
-<h4>
-<a href="https://goaliepost.com/" target="_blank">Goalie Post - Starting Goalies</a><br>
-<a href="https://leftwinglock.com/starting-goalies/" target="_blank">LeftWingLock - Starting Goalies</a><br> 
-<a href="https://www.dailyfaceoff.com/starting-goalies" target="_blank">Daily Faceoff - Starting Goalies</a><br>
-<a href="https://www.rotowire.com/hockey/starting-goalies.php" target="_blank">Rotowire - Starting Goalies</a><br>
-</h4>
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="roster" class="tabcontent">
-<h4>
-  <a href="https://puckpedia.com/" target="_blank">PuckPedia NHL Updates + Roster Salaries</a><br>
-  <a href="https://capwages.com/" target="_blank">CapWages Roster/Salaries</a><br>
-                <a href="https://www.quanthockey.com/" target="_blank">Quant Hockey - Hockey Stats</a><br>
-                <a href="https://www.hockey-reference.com/leagues/stats.html" target="_blank">Hockey Reference Stats</a><br><br>
-
-</h4>
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="rumours" class="tabcontent">
-<h4>
-                  <a href="http://www.spectorshockey.net/" target="_blank">Spectors</a><br>
-                <a href="https://nhlrumors.com/" target="_blank">NHLRumors</a><br>
-                <a href="https://www.prohockeyrumors.com/" target="_blank">Pro Hockey Rumors</a><br>
-                <a href="https://www.nhltraderumors.me/" target="_blank">NHL Trade Rumors.me</a><br>
-                <a href="https://www.prosportsdaily.com/nhl/nhl-rumors.html" target="_blank">ProSports Daily</a><br>
-                <a href="https://thehockeywriters.com/" target="_blank">The Hockey Writers - Hockey Ramblings and Rumours</a><br><br>
-                <a href="https://www.hockeybuzz.com/" target="_blank">Eklund Hockey Buzz</a><br>
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="scores" class="tabcontent">
-<h4>
-  
-                <a href="https://www.nhl.com/scores" target="_blank">NHL.com - Scores site</a><br>
-                <a href="https://sports.yahoo.com/nhl/scoreboard/" target="_blank">Yahoo Sports - Scores site</a><br>
-                <a href="https://www.espn.com/nhl/scoreboard" target="_blank">ESPN Scoreboard</a><br>
-                <a href="https://www.hockey-reference.com/boxscores/" target="_blank">Hockey Reference - Boxscores</a><br>
-
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="news" class="tabcontent">
-<h4>
-                  <a href="https://www.nhl.com/" target="_blank">NHL.com - General Hockey News</a><br>
-                <a href="https://www.tsn.ca/nhl" target="_blank">TSN Hockey Section - General Hockey News</a><br>
-                <a href="https://www.gamedaytweets.com/">GameDay Tweets News/Updates</a><br>
-                <a href="https://www.sportsnet.ca/hockey/nhl/" target="_blank">Sportsnet Hockey Section - General Hockey News</a><br>
-                <a href="https://www.cbssports.com/nhl/" target="_blank">CBS Sports Hockey Section - General Hockey News</a><br>
-                <a href="https://www.cbc.ca/sports/hockey" target="_blank">CBC Hockey News</a><br>
-
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="streams" class="tabcontent">
-<h4>
-                <a href="http://onhockey.tv/" target="_blank">ON Hockey TV Streams</a><br>
-                <a href="http://nhlbite.com/" target="_blank">NHL Bite reddit NHL streams</a><br>
-                <a href="https://www.redditsports.stream/nhlstreams" target="_blank">Reddit Sports Streams</a><br>
-                <a href="http://markkystreams.com/" target="_blank">MarkkyStreams online game links</a><br>
-                <a href="http://nhl66.ir" target="_blank">NHL66 online game links</a><br>
-                <a href="http://Streameast.live" target="_blank">StreamEast online game links</a><br>
-                <a href="http://nhlbite.com/" target="_blank">NHLBite online game links</a><br>
-                <a href="https://onhockey.tv" target="_blank">Onhockey.tv online game links<br></a>
-                <a href="https://www.thestreameast.to/abac-nhl-streams/" target="_blank">StreamEast Online game links</a><br>
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="other" class="tabcontent">
-  <h4>
-    <a href="https://www.kkupfl.com/tools" target="_blank">Keeping Karlsson Fantasy Hockey Tools</a><br>
-    <a href="https://docs.google.com/spreadsheets/d/1XPNDqcWElag7fphrh0nATyE8SaE7EcR68L68oQ1t38g/edit?pli=1&gid=1679876902#gid=1679876902" target="_blank">Keeping Karlsson 24-25 Goalie Rankings</a><br>
-    <a href="https://docs.google.com/spreadsheets/d/18HgVTmq9Wh8--bLbLCrF9sA7VHssSxAFiqPxrs_l4qs/edit?pli=1&gid=0#gid=0" target="_blank">Bangers Fantasy League 2024-25 Rankings</a><br>
-    <a href="https://www.puckdoku.com/" target="_blank">PUCKDOKU</a><br>
-    <a href="https://www.fantasydraftlottery.com/" target="_blank">Fantasy Draft Lottery Draft Tool</a><br>
-  </h4>
-  
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="lines" class="tabcontent">
-  <h4>
-  <a href="https://www.dailyfaceoff.com/teams/" target="_blank">Daily Faceoff - Line Combos</a><br>
-  <a href="https://frozenpool.dobbersports.com/frozenpool_lastgamelines.php" target="_blank">Dobber Line Combos</a><br>
-  <a href="https://www.capfriendly.com/injury" target="_blank">Capfriendly Injury Update site</a><br>
-  <a href="https://frozenpool.dobbersports.com/frozenpool_news.php?team=ALL&position=ALL&player=0&show=PU" target="_blank">DobberHockey Player Update<br></a>
-  <a href="https://www.cbssports.com/fantasy/hockey/players/news/all/" target="_blank">CBS sports Player Updates</a><br>
-  <a href="https://www.rotowire.com/hockey/news.php" target="_blank">Rotowire Player Updates</a><br> 
-</h4>
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-
-
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
-                
-
-                       
-                
-                <br><br><br><br><br><br><br><br><br><br><br><br>
-                <b>League Documents</b>
+    <main class="content">
+        <div class="container">
+            <section class="commish-notes">
+                <h2>Commissioner’s Bulletin</h2>
+                <p>April 17: End of Regular Season</p>
+                <p>April 18 - June 9: NHL Playoffs</p>
                 <br>
-                <a href="Wannabe GM Fantasy Hockey League Rules.pdf" target="_blank">Wannabe a GM - Fantasy Hockey League Rulebook</a><br>
-                <br><br><br></h4>
+                <p>TBD: Summer Draft Lotto Event</p>
+                <p>TBD: 2025-26 Fantasy Season Keeper Deadline</p>
+                <p>TBD: 2025-26 Draft Day</p>
+                <br><br>
+                <p>*Summer Super Keeper Trades No Longer Available; Sophomore and Rookie Trades Still Active</p>
+            </section>
+
+            <section class="standings">
+                <h2>League Standings</h2>
+                <button id="refresh-standings">Update Standings -- N/A</button>
+                <table id="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Puck Chuckers</td><td>8</td><td>2</td><td>16</td></tr>
+                        <tr><td>Ice Holes</td><td>6</td><td>4</td><td>12</td></tr>
+                        <tr><td>Stick Benders</td><td>4</td><td>6</td><td>8</td></tr>
+                        <tr><td>Goalie Gurus</td><td>2</td><td>8</td><td>4</td></tr>
+                    </tbody>
+                </table>
+                <br><br>
+                <h2>Pay League Standings</h2>
+                                <table id="payleague-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Pay Rank</th>
+                            <th>League Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pierre</td><td>1</td><td>1</td></tr>
+                        <tr><td>Harrington</td><td>2</td><td>3</td></tr>
+                        <tr><td>Egan</td><td>3</td><td>4</td></tr>
+                        <tr><td>Duggan</td><td>4</td><td>5</td></tr>
+                        <tr><td>Mulvihill</td><td>5</td><td>7</td></tr>
+                        <tr><td>Maran</td><td>6</td><td>9</td></tr>
+                        <tr><td>Cooper</td><td>7</td><td>LAST</td></tr>
+                    </tbody>
+                </table>
+                <p>Pay League Prize: $120</p>
+
+            </section>
+
+            <section class="articles">
+                <h2>League Buzz</h2>
+                <div class="article-list">
+                    <a href="article1.html" class="article-card">
+                        <h3>Puck Chuckers Dominate Week 6</h3>
+                        <p class="date">March 16, 2025</p>
+                        <p>With Crosby firing on all cylinders, the Chuckers crushed Stick Benders...</p>
+                    </a>
+                    <a href="article2.html" class="article-card">
+                        <h3>Trade Roast: Dave’s Beer Swap</h3>
+                        <p class="date">March 15, 2025</p>
+                        <p>Dave traded McDavid for a case of IPA—Mike’s laughing all the way...</p>
+                    </a>
+                    <a href="article3.html" class="article-card">
+                        <h3>Commish Says: Shape Up!</h3>
+                        <p class="date">March 14, 2025</p>
+                        <p>Too many vetoes this week—play fair or face the penalty box...</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="news-ticker">
+                <p><strong>Latest:</strong> Dave traded McDavid to Mike for a case of beer!</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Our Fantasy Hockey League. Skate or be skated.</p>
+    </footer>
+
+    <script>
+        document.getElementById('refresh-standings').addEventListener('click', function() {
+            const dummyStandings = [
+                { team: "Puck Chuckers", wins: 9, losses: 2, points: 18 },
+                { team: "Ice Holes", wins: 6, losses: 5, points: 12 },
+                { team: "Stick Benders", wins: 5, losses: 6, points: 10 },
+                { team: "Goalie Gurus", wins: 3, losses: 8, points: 6 }
+            ];
+
+            const tbody = document.querySelector('#standings-table tbody');
+            tbody.innerHTML = '';
+            dummyStandings.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${row.team}</td><td>${row.wins}</td><td>${row.losses}</td><td>${row.points}</td>`;
+                tbody.appendChild(tr);
+            });
+            alert('Standings updated! (Dummy data - see Yahoo API notes)');
+        });
+    </script>
 </body>
 </html>
