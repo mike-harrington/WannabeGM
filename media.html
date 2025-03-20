@@ -17,30 +17,66 @@
                     <li><a href="links.html">Links</a></li>
                     <li><a href="keepers.html">Keepers</a></li>
                     <li><a href="fame.html">Hall of Fame</a></li>
-
                 </ul>
             </nav>
         </div>
     </header>
-</div>
-<font color="green"><b><font size="+1">
-<h4><br><br><br>
-<font size="+3"><b><a href="https://mega.nz/file/95tySBqQ#C1GBaKQ7iw_gt66llZPO-xGGwPeWiGEPInIPOOTPwlM" target="_blank">Draft Day 2024 Mix</font></b></a><br>
-<img src="Draft Day Mix 2024.png">
-<br><br> 
-<font size="+3"><b><a href="https://mega.nz/file/15dAjaaZ#m78jP4EEsDNvzRvHndL-wUwVpEiP2xQ9d1YZEz9kHW8" target="_blank">Draft Day 2023 Mix</font></b></a><br><br><br>
-<font size="+3"><b><a href="https://mega.nz/file/V0sQ1DwZ#E1Cm7pg9zCmgi7lzQIS3_stPuFlMA6wOvbMW35jwEgY" target="_blank">Draft Day 2022 Mix</font></b></a><br><br><br>
-<font size="+3"><b><a href="https://mega.nz/file/hp02FaZR#8rqVB7vR9nf90CTvOxyITnksU-qjzTO-AiJH0Z0KqFI" target="_blank">Draft Day 2019 Mix</font></b></a><br></h4>
-<br><br><br><br><br><br><br><br><br><br>
 
-<h3><b><font color="red"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" title="Official WannabeGM Youtube Channel Link"><h4> Official WannabeGM Youtube Channel Link </h4> </a></h3></b></font>
-
+    <main class="content">
+        <div class="container">
+            <section class="media">
+                <h2>Media</h2>
+                <div class="draft-mix">
+                    <h3>
+                        <a href="https://mega.nz/file/95tySBqQ#C1GBaKQ7iw_gt66llZPO-xGGwPeWiGEPInIPOOTPwlM" target="_blank">Draft Day 2024 Mix</a>
+                    </h3>
+                    <button class="toggle-image-btn" onclick="toggleImage()">Show Track Details</button>
+                    <div class="image-container" id="trackImageContainer">
+                        <img src="Draft Day Mix 2024.png" alt="Track Details for Draft Day 2024 Mix">
+                    </div>
+                </div>
+                <div class="draft-mix">
+                    <h3>
+                        <a href="https://mega.nz/file/15dAjaaZ#m78jP4EEsDNvzRvHndL-wUwVpEiP2xQ9d1YZEz9kHW8" target="_blank">Draft Day 2023 Mix</a>
+                    </h3>
+                </div>
+                <div class="draft-mix">
+                    <h3>
+                        <a href="https://mega.nz/file/V0sQ1DwZ#E1Cm7pg9zCmgi7lzQIS3_stPuFlMA6wOvbMW35jwEgY" target="_blank">Draft Day 2022 Mix</a>
+                    </h3>
+                </div>
+                <div class="draft-mix">
+                    <h3>
+                        <a href="https://mega.nz/file/hp02FaZR#8rqVB7vR9nf90CTvOxyITnksU-qjzTO-AiJH0Z0KqFI" target="_blank">Draft Day 2019 Mix</a>
+                    </h3>
+                </div>
+                <br><br><br>
+                <div class="youtube-link">
+                    <h3>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" title="Official WannabeGM Youtube Channel Link">Official WannabeGM Youtube Channel Link</a>
+                    </h3>
+                </div>
             </section>
+        </div>
+    </main>
 
-          
     <footer>
         <p>© WannabeGM Fantasy Hockey League. Skate or be skated.</p>
     </footer>
 
+    <script>
+        function toggleImage() {
+            const container = document.getElementById('trackImageContainer');
+            const button = document.querySelector('.toggle-image-btn');
+            const isExpanded = container.style.display === 'none' || container.style.display === '';
+            container.style.display = isExpanded ? 'block' : 'none';
+            button.textContent = isExpanded ? 'Hide Track Details' : 'Show Track Details';
+            button.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('trackImageContainer').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
