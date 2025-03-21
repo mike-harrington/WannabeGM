@@ -85,6 +85,55 @@ nav a:hover {
     margin-bottom: 0.5rem;
 }
 
+.commish-yearly {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border-left: 5px solid #e63946;
+    /* Ensure the container handles overflow and wraps the table */
+    overflow-x: auto; /* Allows horizontal scrolling if the table is too wide */
+    width: 100%; /* Ensures the container takes the full width of its parent */
+    box-sizing: border-box; /* Includes padding and border in the width */
+}
+
+.commish-yearly h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Add styling for the table inside the container */
+.commish-yearly table {
+    width: 100%; /* Makes the table fit the container's width */
+    border-collapse: collapse; /* Ensures borders don't add extra space */
+    table-layout: auto; /* Allows the table to adjust column widths based on content */
+}
+
+/* Optional: Style table cells for better readability */
+.commish-yearly table th,
+.commish-yearly table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Optional: Style the table header */
+.commish-yearly table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Optional: Add alternating row colors and hover effects */
+.commish-yearly table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.commish-yearly table tr:hover {
+    background-color: #ddd;
+}
+
 .standings {
     background-color: #fff;
     padding: 1.5rem;
