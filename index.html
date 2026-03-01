@@ -1,252 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WannabeGM Hockey League</title>
-    <link rel="stylesheet" href="hockey-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WannabeGM Hockey League</title>
+  
+  <!-- Favicon (using the couch/sticks logo base64 placeholder) -->
+  <link rel="icon" type="image/png" href="./Wannabelogo.jpeg" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1117;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --accent-dark: #3b82f6;
+      --highlight: #ef4444;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --logo-shadow: 0 0 20px rgba(96,165,250,0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(96,165,250,0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(239,68,68,0.05) 0%, transparent 20%);
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container {
+      margin-bottom: 1.5rem;
+    }
+    .logo {
+      max-width: 320px;
+      height: auto;
+      filter: drop-shadow(var(--logo-shadow));
+    }
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(96,165,250,0.3);
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0 3rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      background: rgba(96,165,250,0.1);
+    }
+    .nav-links a:hover {
+      background: rgba(96,165,250,0.25);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .yahoo-link {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(96,165,250,0.3);
+      margin: 1rem 0;
+    }
+    .yahoo-link:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(96,165,250,0.4);
+    }
+    section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+    }
+    .buzz-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .buzz-card {
+      background: rgba(30,41,59,0.7);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .buzz-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(96,165,250,0.2);
+      border-color: var(--accent);
+    }
+    .buzz-card h3 {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+    .buzz-card .date {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .buzz-card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .buzz-card .read-more {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .buzz-card .read-more:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(96,165,250,0.1);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    tr:hover {
+      background: rgba(96,165,250,0.05);
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+    .bulletin strong {
+      color: var(--highlight);
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      .logo { max-width: 260px; }
+      .nav-links { flex-direction: column; gap: 0.8rem; }
+      .buzz-grid { grid-template-columns: 1fr; }
+      section { padding: 1.5rem; }
+      table { font-size: 0.9rem; }
+      th, td { padding: 0.6rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">WannabeGM Hockey League</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="links.html">Links</a></li>
-                    <li><a href="keepers.html">Keepers</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="fame.html">Hall of Fame</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>
-            <a href="https://hockey.fantasysports.yahoo.com/hockey/3578" target="_blank">Yahoo Site Link: Wannabe a GM - Season 22</a><br></h2>
-            
-        </div>
-    </section>
+<div class="container">
+  <header>
+    <div class="logo-container">
+      <img src="./Wannabelogo.jpeg" 
+           alt="WannabeGM Hockey League Logo" class="logo">
+    </div>
+    <h1>WannabeGM Hockey League</h1>
+    <p class="subtitle">Season 22 – Yahoo Fantasy Hockey</p>
 
-    <main class="content">
-        <div class="container">
-            <section class="commish-notes">
-                <h2>Commissioner’s Bulletin</h2>
-                <p>Harrington is 2024-25's WannabeGM Champion!!</p><br>
-                <p>April 18 - June 9: NHL Playoffs</p>
-                <p>May 5 - NHL Draft Lotto</p>
-                <br>
-                <p>TBD: Summer Draft Lotto Event</p>
-                <p><b>Sept 20: 2025-26 Fantasy Season Keeper Deadline</p><br></b>
-                <p><b>Sept 27: 2025-26 Draft Day, Cassita del Blakely - 12pm</b></p>
-                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODI4Y2M4NTgtYmZmOS00MGIxLWJiMmMtMmNjYTVlYzdjNDgx%40thread.v2/0?context=%7b%22Tid%22%3a%2255cce433-38c7-45de-87ed-cbb5c1322383%22%2c%22Oid%22%3a%22972d8db6-a3ca-433d-b6bd-32e7470d2e2b%22%7d" target="_blank">JOIN WANNABEGM TEAMS MEETING NOW</a><br>
-                Meeting ID: 215 059 343 745<br>
-				Passcode: 92JK3i8B<br>
-                <br>
-                <p>Oct 7, 2025: Start of 2025-26 Season</p>
-                <br><br>
-                <p>*Summer Super Keeper Trades No Longer Available; Sophomore and Rookie Trades Still Active</p>
-            </section>
+    <!-- Main navigation -->
+    <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="links.html">Links</a>
+                    <a href="keepers.html">Keepers</a>
+                    <a href="media.html">Media</a>
+                    <a href="fame.html">Hall of Fame</a>
+    </nav>
 
-   <!--         <section class="standings">
-               
-                
-                <h2>Pay League Standings</h2>
-                                <table id="payleague-table">
-                    <thead>
-                        <tr>
-                            <th>Team</th>
-                            <th>Pay Rank</th>
-                            <th>Lotto Results</th>
-                            <th>Lotto Ballots</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Harrington</td><td>1 (Winner)</td><td>4</td><td>1</td></tr>
-                        <tr><td>Duggan</td><td>2</td><td>5</td><td>15-2+5= 18</td></tr>
-                        <tr><td>Mulvihill</td><td>3</td><td>1</td><td>15-4= 11</td></tr>
-                        <tr><td>Maran</td><td>4</td><td>7</td><td>15-6= 9</td></tr>
-                        <tr><td>Egan</td><td>5</td><td>6</td><td>15-8= 7</td></tr>
-                        <tr><td>Pierre</td><td>6</td><td>2</td><td>15-9= 6</td></tr>
-                        <tr><td>Cooper</td><td>7</td><td>3</td><td>15-14= 1</td></tr>
-                    </tbody>
-                </table>
-                
-            </section>
-            <br><br>
-       -->         <section>
-                 <h2>Upcoming League Draft Order 2025-26</h2>
-                    <table id="draft-order">
-                    <thead>
-                        <tr>
-                            <th>Team</th>
-                            <th>Rank</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Mulvihill -$</td><td>1</td></tr>
-                        <tr><td>Patrick</td><td>2</td></tr>
-                        <tr><td>Pierre $</td><td>3</td></tr>
-                        <tr><td>Duncan</td><td>4</td></tr>
-                        <tr><td>Cooper -$</td><td>5</td></tr>
-                        <tr><td>Kevin</td><td>6</td></tr>
-                        <tr><td>Harrington -$</td><td>7</td></tr>
-                        <tr><td>Martin</td><td>8</td></tr>
-                        <tr><td>Duggan -$</td><td>9</td></tr>
-                        <tr><td>Egan -$</td><td>10</td></tr>
-                        <tr><td>Jadrian</td><td>11</td></tr>
-                        <tr><td>Anthony</td><td>12</td></tr>
-                        <tr><td>Symmington</td><td>13</td></tr>
-                        <tr><td>Josef</td><td>14</td></tr>
-                        <tr><td>Maran</td><td>15</td></tr>
-                    </tbody>
-                </table>
-                	<p>Teams with -$ are paid for pay league</p>
-					<p>Current Pay League Prize: $120</p>
+    <a href="https://hockey.fantasysports.yahoo.com/hockey/3578" class="yahoo-link" target="_blank">
+      Yahoo Site Link: Wannabe a GM - Season 22
+    </a>
+  </header>
 
-            </section>
+  <section>
+    <h2>Commissioner’s Bulletin</h2>
+    <div class="bulletin">
+      <p><strong>Harrington is 2024-25's WannabeGM Champion!!</strong></p><br>
+      <p>March 6 - NHL Trade Deadline</p>
+      <p><strong>March 11 - WannabeGM Trade Deadline</strong></p>
+      <p>April 16 - Last day of the NHL Regular Season</p><br>
+      <p><em>Summer Super Keeper Trades No Longer Available; Sophomore and Rookie Trades Still Active</em></p>
+    </div>
+  </section>
 
-                		<br><br>
-    
-             <section>
-                 <h2>2025-26 Draft Pick Matrix</h2>
-                <button id="refresh-standings">Update Standings -- N/A</button>
-                <table id="pick-matrix">
-                    <thead>
-                        <tr>
-                            <th>Team</th>
-                            <th>Drafting</th>
-                            <th>R1</th>
-                            <th>R2</th>
-                            <th>R3</th>
-                            <th>R4</th>
-                            <th>R5</th>
-                            <th>R6</th>
-                            <th>R7</th>
-                            <th>R8</th>
-                            <th>R9</th>
-                            <th>R10</th>
-                            <th>R11</th>
-                            <th>R12</th>
-                            <th>R13</th>
-                            <th>R14</th>
-                            <th>R15</th>
-                            <th>R16</th>
-                            <th>R17</th>
-                            <th>R18</th>
-                            <th>R19</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Mulvihill</td><td>1</td><td>1</td><td>30</td><td>31</td><td>60</td><td>61</td><td>90</td><td>91</td><td>120</td><td>121</td><td>150</td><td>151</td><td>180</td><td>181</td><td>210</td><td>211</td><td>240</td><td>241</td><td>270</td><td>271</td></tr>
-                        <tr><td>Patrick</td><td>2</td><td>2</td><td>29</td><td></td><td>59</td><td>62</td><td>89</td><td>92</td><td>119</td><td>122</td><td>149</td><td>152, 152</td><td>179</td><td>182</td><td>209</td><td>212</td><td>239</td><td></td><td>269</td><td>272, 277</td></tr>
-                        <tr><td>Pierre</td><td>3</td><td></td><td>28</td><td>33</td><td></td><td>63</td><td>88</td><td>93, 94</td><td>116, 118</td><td>123</td><td>148</td><td>153</td><td>178</td><td>183</td><td>208</td><td>213</td><td>238</td><td>243</td><td>268</td><td>273</td></tr>
-                        <tr><td>Duncan</td><td>4</td><td>4</td><td>27</td><td>34</td><td>57</td><td>64</td><td>87</td><td>94</td><td>117</td><td>124</td><td>147</td><td>154</td><td>177</td><td>184</td><td>207</td><td>214</td><td>237</td><td></td><td>267</td><td>277, 274</td></tr>
-                        <tr><td>Cooper</td><td>5</td><td>3, 5</td><td>26</td><td>32, 35</td><td>56, 58</td><td></td><td>86</td><td></td><td></td><td>125</td><td>146</td><td>155</td><td>176, 179</td><td>185</td><td>206</td><td>215</td><td>236</td><td>242, 245</td><td></td><td></td></tr>
-                        <tr><td>Kevin</td><td>6</td><td>6</td><td>25</td><td>36</td><td>55</td><td>66</td><td>85</td><td>96</td><td>115</td><td>126</td><td>145</td><td>156</td><td>175</td><td>186</td><td>205</td><td>216</td><td>235</td><td>246</td><td>265</td><td>275</td></tr>
-                        <tr><td>Harrington</td><td>7</td><td>7</td><td>24</td><td>37</td><td>54</td><td>67</td><td>84</td><td>97</td><td>114</td><td>127</td><td>144</td><td>157</td><td>174</td><td>187</td><td>204</td><td>217</td><td>233</td><td>242, 243, 244</td><td></td><td></td></tr>
-                        <tr><td>Martin</td><td>8</td><td>8</td><td>23</td><td>38</td><td>53</td><td>68</td><td>83</td><td>98</td><td>113</td><td>128</td><td>143</td><td>158</td><td>173</td><td>188</td><td>203</td><td>218</td><td>232</td><td>247</td><td>264</td><td>276</td></tr>
-                        <tr><td>Egan</td><td>9</td><td>9</td><td>22</td><td>39</td><td>52</td><td>69</td><td>82, 85</td><td>99</td><td>112</td><td>129</td><td>142</td><td>159</td><td></td><td></td><td>202</td><td>219</td><td>231</td><td>248</td><td>263</td><td>277, 278</td></tr>
-                        <tr><td>Duggan</td><td>10</td><td>10</td><td>21</td><td>40</td><td>51</td><td>70</td><td></td><td>100</td><td>111</td><td>130</td><td>141</td><td>160</td><td>171</td><td>187, 189</td><td>201</td><td>220</td><td>230</td><td>249</td><td>262</td><td>278</td></tr>
-                        <tr><td>Jadrian</td><td>11</td><td>11</td><td>20</td><td>41</td><td>50</td><td>71</td><td>81</td><td>101</td><td>110</td><td>131</td><td>140</td><td>161</td><td>170</td><td>190</td><td>200</td><td>221</td><td>229</td><td>250</td><td>261</td><td>279</td></tr>
-                        <tr><td>Anthony</td><td>12</td><td>12</td><td>19</td><td>42</td><td>49</td><td>62, 72</td><td>80</td><td>102</td><td>109</td><td>132</td><td></td><td>162</td><td>169</td><td>191</td><td>199</td><td>222</td><td>228</td><td></td><td>260</td><td>278, 280</td></tr>
-                        <tr><td>Symmington</td><td>13</td><td>13</td><td>18</td><td>43</td><td>48</td><td>73</td><td>79</td><td>103</td><td>108</td><td>133</td><td>139</td><td>163</td><td>168</td><td>192</td><td>198</td><td>223</td><td></td><td>251, 252</td><td>259</td><td>281</td></tr>
-                        <tr><td>Josef</td><td>14</td><td>14</td><td>17</td><td>44</td><td>47</td><td>74</td><td>78</td><td>104</td><td>107</td><td>134</td><td>138</td><td>164</td><td>167</td><td>193</td><td>197</td><td>224</td><td>227</td><td>253</td><td>258</td><td>282</td></tr>
-                        <tr><td>Maran</td><td>15</td><td>15</td><td>16</td><td>45</td><td>46</td><td>75</td><td>77</td><td>105</td><td>106</td><td>135</td><td>137</td><td>165</td><td>166</td><td>194</td><td>196</td><td>225</td><td>226</td><td>254</td><td>257</td><td>283</td></tr>
-                    </tbody>
-                </table>
+  <section>
+    <h2>League Draft Order 2025-26</h2>
+    <p>Current Pay League Prize: $120</p>
+    <table>
+      <thead>
+        <tr><th>Team</th><th>Rank</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mulvihill -$</td><td>1</td></tr>
+        <tr><td>Patrick</td><td>2</td></tr>
+        <tr><td>Pierre $</td><td>3</td></tr>
+        <tr><td>Duncan</td><td>4</td></tr>
+        <tr><td>Cooper -$</td><td>5</td></tr>
+        <tr><td>Kevin</td><td>6</td></tr>
+        <tr><td>Harrington -$</td><td>7</td></tr>
+        <tr><td>Martin</td><td>8</td></tr>
+        <tr><td>Duggan -$</td><td>9</td></tr>
+        <tr><td>Egan -$</td><td>10</td></tr>
+        <tr><td>Jadrian</td><td>11</td></tr>
+        <tr><td>Anthony</td><td>12</td></tr>
+        <tr><td>Symmington</td><td>13</td></tr>
+        <tr><td>Josef</td><td>14</td></tr>
+        <tr><td>Maran</td><td>15</td></tr>
+      </tbody>
+    </table>
+    <p>Teams with -$ are paid for pay league.</p>
+  </section>
 
-            </section>
-            <br><br>
+  <!--<section>
+    <h2>2025-26 Draft Pick Matrix</h2>
+    <p>Update Standings -- N/A</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Team</th><th>Drafting</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th><th>R5</th><th>R6</th><th>R7</th><th>R8</th><th>R9</th><th>R10</th><th>R11</th><th>R12</th><th>R13</th><th>R14</th><th>R15</th><th>R16</th><th>R17</th><th>R18</th><th>R19</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mulvihill</td><td>1</td><td>1</td><td>30</td><td>31</td><td>60</td><td>61</td><td>90</td><td>91</td><td>120</td><td>121</td><td>150</td><td>151</td><td>180</td><td>181</td><td>210</td><td>211</td><td>240</td><td>241</td><td>270</td><td>271</td></tr>
+          <tr><td>Patrick</td><td>2</td><td>2</td><td>29</td><td></td><td>59</td><td>62</td><td>89</td><td>92</td><td>119</td><td>122</td><td>149</td><td>152, 152</td><td>179</td><td>182</td><td>209</td><td>212</td><td>239</td><td></td><td>269</td><td>272, 277</td></tr> 
+          
+        </tbody>
+      </table>
+    </div>
+  </section> -->
 
-                <section>
-                 <h2>League Standings 2024-25</h2>
-                <button id="refresh-standings">Update Standings -- N/A</button>
-                <table id="standings-table">
-                    <thead>
-                        <tr>
-                            <th>Team</th>
-                            <th>Rank</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Harrington</td><td>1</td></tr>
-                        <tr><td>Patrick</td><td>2</td></tr>
-                        <tr><td>Duggan</td><td>3</td></tr>
-                        <tr><td>Duncan</td><td>4</td></tr>
-                        <tr><td>Mulvihill</td><td>5</td></tr>
-                        <tr><td>Kevin</td><td>6</td></tr>
-                        <tr><td>Maran</td><td>7</td></tr>
-                        <tr><td>Martin</td><td>8</td></tr>
-                        <tr><td>Egan</td><td>9</td></tr>
-                        <tr><td>Pierre</td><td>10</td></tr>
-                        <tr><td>Jadrian</td><td>11</td></tr>
-                        <tr><td>Anthony</td><td>12</td></tr>
-                        <tr><td>Symmington</td><td>13</td></tr>
-                        <tr><td>Josef</td><td>14</td></tr>
-                        <tr><td>Cooper</td><td>15</td></tr>
-                    </tbody>
-                </table>
+  <!-- Add your other sections (Standings, etc.) here -->
 
-            </section>
-            <br><br>
+  <!-- New League Buzz / Articles section with hover cards -->
+  <section>
+    <h2>League Buzz / Articles</h2>
+    <div class="buzz-grid">
+      <a href="YOUR_ARTICLE_LINK_1.html" class="buzz-card">
+        <h3>Don’t Leave Fantasy Games on the Table</h3>
+        <span class="date">March 18, 2025</span>
+        <p>Welcome to the inaugural edition of our wild and wacky fantasy hockey roundup...</p>
+        <span class="read-more">Read more →</span>
+      </a>
 
+      <a href="YOUR_ARTICLE_LINK_2.html" class="buzz-card">
+        <h3>The Race for the Top Heating Up!</h3>
+        <span class="date">March 17, 2025</span>
+        <p>Ladies and gentlemen, grab your skates and popcorn because...</p>
+        <span class="read-more">Read more →</span>
+      </a>
 
-            <section class="articles">
-                <h2>League Buzz</h2>
-                <div class="article-list">
-                    <a href="article1.html" class="article-card">
-                        <h3>Don’t Leave Fantasy Games on the Table</h3>
-                        <p class="date">March 18, 2025</p>
-                        <p>Welcome to the inaugural edition of our wild and wacky fantasy hockey roundup ...</p>
-                    </a>
-                    <a href="article2.html" class="article-card">
-                        <h3>The Race for the Top Heating Up!</h3>
-                        <p class="date">March 17, 2025</p>
-                        <p>Ladies and gentlemen, grab your skates and popcorn because...</p>
-                    </a>
-                    <a href="article3.html" class="article-card">
-                        <h3>Article Spot 3 - TDB</h3>
-                        <p class="date">March 14, 1865</p>
-                        <p>blah blah .. blah and ...</p>
-                    </a>
-                </div>
-            </section>
+      <a href="YOUR_ARTICLE_LINK_3.html" class="buzz-card">
+        <h3>Latest: Harrington Wraps up a 10th Championship</h3>
+        <span class="date">April 20, 2025</span>
+        <p>Harrington secures 10th title, Duggan takes 3rd...</p>
+        <span class="read-more">Read more →</span>
+      </a>
 
-            <section class="news-ticker">
-                <p><strong>Latest:</strong> April 20 - Harrington Wraps up a 10th Championship, Duggan squeaks out 3rd..</p>
-            </section>
-        </div>
-    </main>
+      <!-- Add more article cards here as needed -->
+    </div>
+  </section>
 
-    <footer>
-        <p>© WannabeGM Fantasy Hockey League. Skate or be skated.</p>
-    </footer>
+  <div class="footer">
+    WannabeGM Hockey League – Season 22 • Maintained by Harrington
+  </div>
+</div>
 
-    <script>
-        document.getElementById('refresh-standings').addEventListener('click', function() {
-            const dummyStandings = [
-                { team: "Puck Chuckers", wins: 9, losses: 2, points: 18 },
-                { team: "Ice Holes", wins: 6, losses: 5, points: 12 },
-                { team: "Stick Benders", wins: 5, losses: 6, points: 10 },
-                { team: "Goalie Gurus", wins: 3, losses: 8, points: 6 }
-            ];
-
-            const tbody = document.querySelector('#standings-table tbody');
-            tbody.innerHTML = '';
-            dummyStandings.forEach(row => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${row.team}</td><td>${row.wins}</td><td>${row.losses}</td><td>${row.points}</td>`;
-                tbody.appendChild(tr);
-            });
-            alert('Standings updated! (Dummy data - see Yahoo API notes)');
-        });
-    </script>
 </body>
 </html>
