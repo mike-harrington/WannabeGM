@@ -1,165 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WannabeGM Hockey League Links</title>
-    <link rel="stylesheet" href="hockey-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WannabeGM Hockey League – Links</title>
+  
+  <!-- Favicon using your logo -->
+  <link rel="icon" type="image/jpeg" href="./Wannabelogo.jpeg" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1117;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --accent-dark: #3b82f6;
+      --highlight: #ef4444;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --logo-shadow: 0 0 20px rgba(96,165,250,0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(96,165,250,0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(239,68,68,0.05) 0%, transparent 20%);
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container {
+      margin-bottom: 1.5rem;
+    }
+    .logo {
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(var(--logo-shadow));
+    }
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(96,165,250,0.3);
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0 3rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      background: rgba(96,165,250,0.1);
+    }
+    .nav-links a:hover {
+      background: rgba(96,165,250,0.25);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      text-align: left;
+    }
+    .tab {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .tablinks {
+      background: rgba(96,165,250,0.1);
+      color: var(--text);
+      border: none;
+      padding: 0.8rem 1.4rem;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .tablinks:hover {
+      background: rgba(96,165,250,0.3);
+    }
+    .tablinks.active {
+      background: var(--accent);
+      color: white;
+    }
+    .tabcontent {
+      display: none;
+      background: rgba(30,41,59,0.7);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      animation: fadeEffect 0.5s;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .tabcontent h4 a {
+      color: var(--accent);
+      text-decoration: none;
+      display: block;
+      margin: 0.6rem 0;
+    }
+    .tabcontent h4 a:hover {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+    .close-btn {
+      float: right;
+      color: #94a3b8;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-top: -0.5rem;
+    }
+    .close-btn:hover {
+      color: var(--highlight);
+    }
+    .league-docs {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .league-docs a {
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .league-docs a:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .logo { max-width: 240px; }
+      .nav-links { flex-direction: column; gap: 0.8rem; }
+      .tab { flex-direction: column; }
+      section { padding: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">WannabeGM Hockey League</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="keepers.html">Keepers</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="fame.html">Hall of Fame</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>
-            <a href="https://hockey.fantasysports.yahoo.com/hockey/3578" target="_blank">Yahoo Site Link: Wannabe a GM - Season 22</a><br></h2>
-            
-        </div>
-    </section>
+<div class="container">
+  <header>
+    <div class="logo-container">
+      <img src="./Wannabelogo.jpeg" alt="WannabeGM Hockey League Logo" class="logo">
+    </div>
+    <h1>WannabeGM Hockey League</h1>
+    <p class="subtitle">Links & Resources</p>
 
-    <main class="content">
-        <div class="container">
-            <section class="tab">
-                <button class="tablinks" onclick="openCity(event, 'ramble')"><b><i>Ramblings</button></b></i>
-                <button class="tablinks" onclick="openCity(event, 'goalies')">Starting Goalies</button>
-                <button class="tablinks" onclick="openCity(event, 'lines')">Line Combos/Updates</button>
-                <button class="tablinks" onclick="openCity(event, 'roster')">Roster/Salaries</button>
-                <button class="tablinks" onclick="openCity(event, 'rumours')">Rumours</button>
-                <button class="tablinks" onclick="openCity(event, 'scores')">Scores</button>
-                <button class="tablinks" onclick="openCity(event, 'news')">General News</button>
-                <button class="tablinks" onclick="openCity(event, 'streams')">Streams</button>
-                <button class="tablinks" onclick="openCity(event, 'other')">Other</button>
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="index.html">← Home</a>
+      <a href="fame.html">Hall of Fame</a>
+      <a href="keepers.html">Keepers</a>
+      <a href="media.html">Media</a>
+      <!-- Add more if needed -->
+    </nav>
+  </header>
 
+  <section>
+    <h2>League Resources</h2>
 
-            </section>
-            <div id="ramble" class="tabcontent">
-<h4><a href="https://dobberhockey.com/" target="_blank"> DobberHockey Main Page</a><br></h4>
-<a href="https://www.gamedaytweets.com/" target="_blank"> Gameday Tweets</a><br>
-<span onclick="this.parentElement.style.display='none'">x</span>
+    <!-- Tab buttons – only these show initially -->
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'ramble')">Ramblings</button>
+      <button class="tablinks" onclick="openCity(event, 'goalies')">Starting Goalies</button>
+      <button class="tablinks" onclick="openCity(event, 'lines')">Line Combos/Updates</button>
+      <button class="tablinks" onclick="openCity(event, 'roster')">Roster/Salaries</button>
+      <button class="tablinks" onclick="openCity(event, 'rumours')">Rumours</button>
+      <button class="tablinks" onclick="openCity(event, 'scores')">Scores</button>
+      <button class="tablinks" onclick="openCity(event, 'news')">General News</button>
+      <button class="tablinks" onclick="openCity(event, 'streams')">Streams</button>
+      <button class="tablinks" onclick="openCity(event, 'other')">Other</button>
+    </div>
+
+    <!-- Tab contents – hidden by default -->
+    <div id="ramble" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://dobberhockey.com/" target="_blank">DobberHockey Main Page</a><br>
+        <a href="https://www.gamedaytweets.com/" target="_blank">Gameday Tweets</a><br>
+      </h4>
+    </div>
+
+    <div id="goalies" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://goaliepost.com/" target="_blank">Goalie Post - Starting Goalies</a><br>
+        <a href="https://www.rotowire.com/hockey/starting-goalies.php" target="_blank">Rotowire - Starting Goalies</a><br>
+        <a href="https://www.dailyfaceoff.com/starting-goalies" target="_blank">Daily Faceoff - Starting Goalies</a><br>
+        <a href="https://leftwinglock.com/starting-goalies/" target="_blank">LeftWingLock - Starting Goalies</a><br> 
+      </h4>
+    </div>
+
+    <div id="lines" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://www.dailyfaceoff.com/teams/" target="_blank">Daily Faceoff - Line Combos</a><br>
+        <a href="https://frozenpool.dobbersports.com/frozenpool_lastgamelines.php" target="_blank">Dobber Line Combos</a><br>
+        <a href="https://frozenpool.dobbersports.com/frozenpool_news.php?team=ALL&position=ALL&player=0&show=PU" target="_blank">DobberHockey Player Update</a><br>
+        <a href="https://www.cbssports.com/fantasy/hockey/players/news/all/" target="_blank">CBS Sports Player Updates</a><br>
+        <a href="https://www.rotowire.com/hockey/news.php" target="_blank">Rotowire Player Updates</a><br> 
+      </h4>
+    </div>
+
+    <div id="roster" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://puckpedia.com/" target="_blank">PuckPedia NHL Updates + Roster Salaries</a><br>
+        <a href="https://capwages.com/" target="_blank">CapWages Roster/Salaries</a><br>
+        <a href="https://www.quanthockey.com/" target="_blank">Quant Hockey - Hockey Stats</a><br>
+        <a href="https://www.hockey-reference.com/leagues/stats.html" target="_blank">Hockey Reference Stats</a><br><br>
+      </h4>
+    </div>
+
+    <div id="rumours" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="http://www.spectorshockey.net/" target="_blank">Spectors</a><br>
+        <a href="https://nhlrumors.com/" target="_blank">NHLRumors</a><br>
+        <a href="https://www.prohockeyrumors.com/" target="_blank">Pro Hockey Rumors</a><br>
+        <a href="https://www.nhltraderumors.me/" target="_blank">NHL Trade Rumors.me</a><br>
+        <a href="https://thehockeywriters.com/" target="_blank">The Hockey Writers - Hockey Ramblings and Rumours</a><br><br>
+        <a href="https://www.hockeybuzz.com/" target="_blank">Eklund Hockey Buzz</a><br>
+      </h4>
+    </div>
+
+    <div id="scores" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://www.nhl.com/scores" target="_blank">NHL.com - Scores site</a><br>
+        <a href="https://sports.yahoo.com/nhl/scoreboard/" target="_blank">Yahoo Sports - Scores site</a><br>
+        <a href="https://www.espn.com/nhl/scoreboard" target="_blank">ESPN Scoreboard</a><br>
+        <a href="https://www.hockey-reference.com/boxscores/" target="_blank">Hockey Reference - Boxscores</a><br>
+      </h4>
+    </div>
+
+    <div id="news" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://www.nhl.com/" target="_blank">NHL.com - General Hockey News</a><br>
+        <a href="https://www.tsn.ca/nhl" target="_blank">TSN Hockey Section - General Hockey News</a><br>
+        <a href="https://www.gamedaytweets.com/">GameDay Tweets News/Updates</a><br>
+        <a href="https://www.sportsnet.ca/hockey/nhl/" target="_blank">Sportsnet Hockey Section - General Hockey News</a><br>
+        <a href="https://www.cbssports.com/nhl/" target="_blank">CBS Sports Hockey Section - General Hockey News</a><br>
+        <a href="https://www.cbc.ca/sports/hockey" target="_blank">CBC Hockey News</a><br>
+      </h4>
+    </div>
+
+    <div id="streams" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="http://onhockey.tv/" target="_blank">ON Hockey TV Streams</a><br>
+        <a href="http://nhlbite.com/" target="_blank">NHL Bite reddit NHL streams</a><br>
+        <a href="https://www.redditsports.stream/nhlstreams" target="_blank">Reddit Sports Streams</a><br>
+        <a href="http://nhl66.ir" target="_blank">NHL66 online game links</a><br>
+        <a href="http://nhlbite.com/" target="_blank">NHLBite online game links</a><br>
+      </h4>
+    </div>
+
+    <div id="other" class="tabcontent">
+      <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+      <h4>
+        <a href="https://www.kkupfl.com/tools" target="_blank">Keeping Karlsson Fantasy Hockey Tools</a><br>
+        <a href="https://docs.google.com/spreadsheets/d/1XPNDqcWElag7fphrh0nATyE8SaE7EcR68L68oQ1t38g/edit?pli=1&gid=1679876902#gid=1679876902" target="_blank">Keeping Karlsson 24-25 Goalie Rankings</a><br>
+        <a href="https://docs.google.com/spreadsheets/d/18HgVTmq9Wh8--bLbLCrF9sA7VHssSxAFiqPxrs_l4qs/edit?pli=1&gid=0#gid=0" target="_blank">Bangers Fantasy League 2024-25 Rankings</a><br>
+        <a href="https://www.puckreporter.com/nhl-stats/leaders-rookies" target="_blank">NHL Rookie Scoring</a><br>
+        <a href="https://www.puckdoku.com/" target="_blank">PUCKDOKU</a><br>
+        <a href="https://www.reddit.com/r/fantasyhockey/comments/1naspq5/202526_fantasy_hockey_resources_draft_help/" target="_blank">Reddit list of other links</a><br>
+        <a href="https://www.fantasydraftlottery.com/" target="_blank">Fantasy Draft Lottery Draft Tool</a><br><br>
+        <a href="https://www.fhfhockey.com/draft-dashboard" target="_blank">Fantasy Hockey DRAFT Dashboard</a><br>
+        <br>
+        <b><u>Import Key:</u></b><br>
+        <i>N4IgbiBcBMA0IBcDOUCMB2ArADgCzWgAZNMA2Uw+JAUwQQEsA7AcxUlAWoEMBbAYQD2AV0YI0mKgGMBAJybM+XTs1n1qbUAHEA8gEEAMgGUoAZni7DhgJKGAKsZjwACk4D6T7VYBy9tPEMAEtr2rtperjoGUIQAdHAgAVa+kLHxAEL62nwA0gCiACKugcEOqZgAvvAANtzMQtS2AJ4ADtRQIJJK1Cpy6iDw9EjZ1NStMlAIMvXwncqyjQDq1PTMABbIUFp6Rq66mrredhHbVrnR-roAarmGxwan5yCGV7nuuQBKfLk+e2eQqDEzCBIkY0DFsOZLDZkgDUM43B5vDCYrh-EEQmE7vpooD4IlkXCQBksnlCsVkaRnN8DLYAJquACy3gAqrYbmDCU59MzbkyvDy-E8Au5PD4HADKULWdpWbcQQ9-nF4AtDliFQD4iDbnsDl4ji93r80JUQDIBEhODJBIwAGYrTYgfJQVHAqDxABG1EYklWUAhICEDCq9AQjVM8D4bvg+gWUZA71jMBNABMZFwbQhtDJk9RxpAANogWzcHgAAlQ-SLJdL0Erxd4pZMderuGbDcwbbLpE7pfQPewPYAnD3UIQRxX4PWy6ha5Pq6gm3OG6hW0vpx2ALoptMZ6jJpxVLiNXNsfOgZqH48yKzJ9p4bAEQgTxAlm-tKc1yvNeiSADWXiEHhPTzEwTHiM0RFvGAgW-P8rEYd5hEYKDoEqc9L1zN9IBAe9oHQBdK04XgsKrBtZxAWD-0A4DTGgQd4Ag5C3XiSj4MQyC0FwNCKIw68oJw3B7yfQjX34j9n0ogCgNzUwTEJRiUJgn9fzYpCoNQbiLyPTD+PvExcDkkTiLE+cv2UqSaMgUDKFNNTmPgViELs-4KlgdDtL4u9BOgXB0G7eAiJ4EiP0XCjzOomSrNAhjnOgJS4KcjirM03iSLwdB0EHExhwC0T32rULJIikDoH9BT7LChL2KY-4TBSjy0t8zKyCMoKTIbVdKqo6SQP0mKkrihzlNUpKuLcniGt07zCHQTrAuClszL-CzIrA9B+pqgghqq5yZ3qq9GuwfTSDmvLsI-Tqip60xCBdcqYEJRzqqgsb3IOqbMrkgdcuM-L2yW7rLNAiRbIG+KVMSmrXLenSvPQbBB2IVqFv+7bAdW4gNpQx7hshqDoYm96vIfGdyPm9qyw7NGVpKyV7q2rqRpq1ANPGrSiew9KTswULyb+rsAZp2S6di8Gmag0h9thznvPQQgybO0iBep4qbpFgacZ2pLJbZ1KpvSwc+x+tr+dLfyuqFqzoBB+mWNx560EIKXPJl+HcHl5GKd7QXVai9bQc2sW8agdBncOgzsCNl9fvO6so6uoGZqxt1NYhh3IFD3XJuJ0cTCp6OTdjht4-C66YEHO7Ypsp7nMHMP9boh9PdNkvlt9sDK4Gu2tZquus45gSjtwLLm6Lstvot9uTDK0W0fFv16+J6ByCjvmx9LCeE4xmeNbn4PIGwReZaH3B87XpWN59suwKBW29-Tw-++lwfCCOnKC5Rst3633r6IDxT761yPoPXAqAeajwvt-UuQMGZ30ZvvTOMMXaD2Xpgd+58PxQLbmXOi4Eq6AKSogwmz97zDxwBAzBV9E5-3pqneekA+5IMavDQcqBzYYPnGOFW193bJ2ggQ5mTsn7IL0qfVeitxISWgatUBfDBrwPTizYB6U8CEF5hI+chVpEgQMnIoOii6rCMOvpbAZ8NHLi0dgoGC45F0P3guZR3lcAUAoZoqhq1UA702t3NOzlDFMI+rNQcCsY4XxXO4nRndA4CPUq9YhIjBKEEIKQdB5j1wRNMKfPRMTxCOM+qQZ8HDlz5x-qYMBtickuUcdgNhwTXHFIyVZNhcifH0NZgEpe2BCCpNCeJEp2i3TYHVptau9tdp5OwEM06vT5zkVKVZfA2SFG7VQkYhu6AiD1OnHMgZTS8G72WUlPaazib4Dwls8sOyrEeJobFVp+84nsxIb5QchsemFwvpvXZdFb74MOTVR+HTXanxHsbT+5YuGT2vtAeSdzKk6yBQJeGt0J5FOnI0kwT4Kn-PUnkz66iZlkQxfLbFNcBrVKIJlC5Vz0Z5jorcgaoye6xIpaQPAFyWYYpZqSsZRz2nxMOvLLpHKpHXJKjZOBZKoblA3PAVM6YEABEGAgeYUB8yyo6EIGQMgvQICcMpQUPBGhTnBVHG0sgADuXBsyaAgt+Fg7QkAXhDJWSQQgLQCB4FOLwvA+jsDCe0BkQgqgQDXJ+bCTglA9ibBGtQ2q2hhtbNhfIIhOiMB7B2bCggBBjB7N2bCwwwBMB7H2bCARrUyDDGGgc2EGTWoYOmsNw5k1CGYMwLgjawljmwrkdtnbJHtAAFJcFTPQDtI5azYV0KIVYAhGBVrCTGp4jQeA8HkCq-t84k0gEHeaagNoRyZpAHWtM6aTRIGEDISQ1BrSTAEFUDQIAuDMFcEgX8XQZCPsGIYagNRJCcCgpMaYIALXLDWGIFIJo3VVBqIwV977LRfqQD+v9AGJhTGoPAUDKx1jRBTOa+DH6kMoeoP+vc6HgPYfA3huVCAABehHEMOm-b+0jaHIBAcwyBsDuHIPwBtKsATjGTzMeQ6xsjgGMNYZ4xBoRIBfxCHdAIBAXBhOftEyRiTFGuNUd43Jw89BkyHgtWp4j4n2Ocekzh2TUH3Uqp4K4SQSAwCuEnaAFjqHyMcak9x6zxoTQqC4MGaghhL3XtvWaB9DpoOwdcIF4LZnPOScozJnE+lVkgGTAR+LahEtsa85Z3z1GUgxBZo-TL9G4sCCC7ljT5mCs+d07JmImAxqao9Q5pzLm3MgA8-l5LOnUuQYC9V4LhhpByBYIoOYvRH1al2PsQ4tg1R-AALSEmeNcOUJw-ipDRNKWUK3wwgBVHqI7kA2tjAvYwGrdHqDvFGIea9PBdVQBtEFmg8BGAjGTEsazuQbvuhqANr7P3dBVGaKsLgOJJTui4DQYM32GQCBzO0HVPAuBMHkJWX8IwrtqtAPTfRsUwVezmXrJeRAKzcUlby5mLo0WfgchT4+eECI09njiwUjOJIs5AV06n41afMvEKT02vPs7H30oZDnYNKlAkZ4VPnuFfLdll94ypNiP5eyV5LpFn1hzq4AVzi7Yv16XWV01QcLUjcVSlepeIjOLd69wjNVstuHqVIZ2k0szuB6iJOiAD38j7dQBBozkplvPqeKD0L2Kdj07h595Hl3vkEZI2D-cxRhII9fktyTAgsfCec9D5ASUjPzZPISX5U+TZg8J+cuXn3lf894Q9pnzXNkK959TwbPswfieELNxfeOUfVG1nr5U-2jPR+94jv3uPjLKl-xnz3-3glc4dg7yblfPvZ-r4fIOJuA-Kn+kZ5vfP+kR6T5N2fn3F-e-L1IAv4vXdT-D4-A-g-+lT5F--m6QfXuD-asb+fPV+bKP-YXXxIfbXU2UAufMBOvRfEZKfYAhseAg-VBQ3ZA7GZfNAr+NfZ5PAa3AcE-E3UcfAiFQg6vBGNhSAkvOndSHPH3TlZnXvfSTAF-f-fhcghXFg3XdfN2NRegg5UvLXHnAQogkxLfHAu3Rg47CQ6gw6HyFxMgsQ73QlacP3Z5DKYeCfWQngsQpPTQ8sFPA-JJFJEQzaBvI5Ywj5PpJQj6LKApKwlCLPXaSgsBRwnOFJfQ1-FA8gzwswog0qbpVwgAzXR3Fg8nVPeGKZcIz3cgqIkwmcbw1nDZMcbfUvDQ+w2ZNIkBAgLg+mJlaAgFSgr-HQ15KlLI+QsvTwyFKvZhEFJA-w3AwI2A9eCXQQrpQSBImFSpZI3IolNgwQ-FPokotpHI8FGIzAmabA1olOTXZglIrokItld3AwhmUvOw8FVggVfWIVTIjVSibQC1b7GQbQMAXMOQHMR9VAVbJdD8fOXAdbR46sfOTAVbSdMJciUgVbfNSBSsdAVbI9EKSsbAdbCsdeUKUcVbbdD8ciGcVbUtC+fOBcVbZtLtSsNhSE02NEv4t44ubE4E1IzomE4E74j8KODAOElubEiEzlToxEiEzEi6bEwcZE02REjk0EkA7Ev41k94oPcoIAA</i><br>
+      </h4>
+    </div>
+
+    <!-- League Documents (outside tabs, always visible) -->
+    <div class="league-docs">
+      <h2>League Documents</h2>
+      <a href="Wannabe GM Fantasy Hockey League Rules.pdf" target="_blank">Wannabe a GM - Fantasy Hockey League Rulebook</a>
+    </div>
+  </section>
+
+  <div class="footer">
+    WannabeGM Hockey League – Links & Resources • Maintained by Harrington
+  </div>
 </div>
-
-<div id="goalies" class="tabcontent">
-<h4>
-<a href="https://goaliepost.com/" target="_blank">Goalie Post - Starting Goalies</a><br>
-<a href="https://www.rotowire.com/hockey/starting-goalies.php" target="_blank">Rotowire - Starting Goalies</a><br>
-<a href="https://www.dailyfaceoff.com/starting-goalies" target="_blank">Daily Faceoff - Starting Goalies</a><br>
-<a href="https://leftwinglock.com/starting-goalies/" target="_blank">LeftWingLock - Starting Goalies</a><br> 
-</h4>
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="roster" class="tabcontent">
-<h4>
-  <a href="https://puckpedia.com/" target="_blank">PuckPedia NHL Updates + Roster Salaries</a><br>
-  <a href="https://capwages.com/" target="_blank">CapWages Roster/Salaries</a><br>
-  <a href="https://www.quanthockey.com/" target="_blank">Quant Hockey - Hockey Stats</a><br>
-  <a href="https://www.hockey-reference.com/leagues/stats.html" target="_blank">Hockey Reference Stats</a><br><br>
-
-</h4>
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="rumours" class="tabcontent">
-<h4>
-                  <a href="http://www.spectorshockey.net/" target="_blank">Spectors</a><br>
-                <a href="https://nhlrumors.com/" target="_blank">NHLRumors</a><br>
-                <a href="https://www.prohockeyrumors.com/" target="_blank">Pro Hockey Rumors</a><br>
-                <a href="https://www.nhltraderumors.me/" target="_blank">NHL Trade Rumors.me</a><br>
-                <a href="https://thehockeywriters.com/" target="_blank">The Hockey Writers - Hockey Ramblings and Rumours</a><br><br>
-                <a href="https://www.hockeybuzz.com/" target="_blank">Eklund Hockey Buzz</a><br>
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="scores" class="tabcontent">
-<h4>
-  
-                <a href="https://www.nhl.com/scores" target="_blank">NHL.com - Scores site</a><br>
-                <a href="https://sports.yahoo.com/nhl/scoreboard/" target="_blank">Yahoo Sports - Scores site</a><br>
-                <a href="https://www.espn.com/nhl/scoreboard" target="_blank">ESPN Scoreboard</a><br>
-                <a href="https://www.hockey-reference.com/boxscores/" target="_blank">Hockey Reference - Boxscores</a><br>
-
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="news" class="tabcontent">
-<h4>
-                  <a href="https://www.nhl.com/" target="_blank">NHL.com - General Hockey News</a><br>
-                <a href="https://www.tsn.ca/nhl" target="_blank">TSN Hockey Section - General Hockey News</a><br>
-                <a href="https://www.gamedaytweets.com/">GameDay Tweets News/Updates</a><br>
-                <a href="https://www.sportsnet.ca/hockey/nhl/" target="_blank">Sportsnet Hockey Section - General Hockey News</a><br>
-                <a href="https://www.cbssports.com/nhl/" target="_blank">CBS Sports Hockey Section - General Hockey News</a><br>
-                <a href="https://www.cbc.ca/sports/hockey" target="_blank">CBC Hockey News</a><br>
-
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="streams" class="tabcontent">
-<h4>
-                <a href="http://onhockey.tv/" target="_blank">ON Hockey TV Streams</a><br>
-                <a href="http://nhlbite.com/" target="_blank">NHL Bite reddit NHL streams</a><br>
-                <a href="https://www.redditsports.stream/nhlstreams" target="_blank">Reddit Sports Streams</a><br>
-                <a href="http://nhl66.ir" target="_blank">NHL66 online game links</a><br>
-                <a href="http://nhlbite.com/" target="_blank">NHLBite online game links</a><br>
-
-</h4>  
-
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="other" class="tabcontent">
-  <h4>
-    <a href="https://www.kkupfl.com/tools" target="_blank">Keeping Karlsson Fantasy Hockey Tools</a><br>
-    <a href="https://docs.google.com/spreadsheets/d/1XPNDqcWElag7fphrh0nATyE8SaE7EcR68L68oQ1t38g/edit?pli=1&gid=1679876902#gid=1679876902" target="_blank">Keeping Karlsson 24-25 Goalie Rankings</a><br>
-    <a href="https://docs.google.com/spreadsheets/d/18HgVTmq9Wh8--bLbLCrF9sA7VHssSxAFiqPxrs_l4qs/edit?pli=1&gid=0#gid=0" target="_blank">Bangers Fantasy League 2024-25 Rankings</a><br>
-    <a href="https://www.puckreporter.com/nhl-stats/leaders-rookies" target="_blank">NHL Rookie Scoring</a><br>
-    <a href="https://www.puckdoku.com/" target="_blank">PUCKDOKU</a><br>
-    <a href="https://www.reddit.com/r/fantasyhockey/comments/1naspq5/202526_fantasy_hockey_resources_draft_help/" target="_blank">Reddit list of other links</a><br>
-
-    <a href="https://www.fantasydraftlottery.com/" target="_blank">Fantasy Draft Lottery Draft Tool</a><br><br>
-    <a href="https://www.fhfhockey.com/draft-dashboard" target="_blank">Fantasy Hockey DRAFT Dashboard</a><br>
-    <br>
-    <b><u>Import Key:</u></b><br>
-    <i>N4IgbiBcBMA0IBcDOUCMB2ArADgCzWgAZNMA2Uw+JAUwQQEsA7AcxUlAWoEMBbAYQD2AV0YI0mKgGMBAJybM+XTs1n1qbUAHEA8gEEAMgGUoAZni7DhgJKGAKsZjwACk4D6T7VYBy9tPEMAEtr2rtperjoGUIQAdHAgAVa+kLHxAEL62nwA0gCiACKugcEOqZgAvvAANtzMQtS2AJ4ADtRQIJJK1Cpy6iDw9EjZ1NStMlAIMvXwncqyjQDq1PTMABbIUFp6Rq66mrredhHbVrnR-roAarmGxwan5yCGV7nuuQBKfLk+e2eQqDEzCBIkY0DFsOZLDZkgDUM43B5vDCYrh-EEQmE7vpooD4IlkXCQBksnlCsVkaRnN8DLYAJquACy3gAqrYbmDCU59MzbkyvDy-E8Au5PD4HADKULWdpWbcQQ9-nF4AtDliFQD4iDbnsDl4ji93r80JUQDIBEhODJBIwAGYrTYgfJQVHAqDxABG1EYklWUAhICEDCq9AQjVM8D4bvg+gWUZA71jMBNABMZFwbQhtDJk9RxpAANogWzcHgAAlQ-SLJdL0Erxd4pZMderuGbDcwbbLpE7pfQPewPYAnD3UIQRxX4PWy6ha5Pq6gm3OG6hW0vpx2ALoptMZ6jJpxVLiNXNsfOgZqH48yKzJ9p4bAEQgTxAlm-tKc1yvNeiSADWXiEHhPTzEwTHiM0RFvGAgW-P8rEYd5hEYKDoEqc9L1zN9IBAe9oHQBdK04XgsKrBtZxAWD-0A4DTGgQd4Ag5C3XiSj4MQyC0FwNCKIw68oJw3B7yfQjX34j9n0ogCgNzUwTEJRiUJgn9fzYpCoNQbiLyPTD+PvExcDkkTiLE+cv2UqSaMgUDKFNNTmPgViELs-4KlgdDtL4u9BOgXB0G7eAiJ4EiP0XCjzOomSrNAhjnOgJS4KcjirM03iSLwdB0EHExhwC0T32rULJIikDoH9BT7LChL2KY-4TBSjy0t8zKyCMoKTIbVdKqo6SQP0mKkrihzlNUpKuLcniGt07zCHQTrAuClszL-CzIrA9B+pqgghqq5yZ3qq9GuwfTSDmvLsI-Tqip60xCBdcqYEJRzqqgsb3IOqbMrkgdcuM-L2yW7rLNAiRbIG+KVMSmrXLenSvPQbBB2IVqFv+7bAdW4gNpQx7hshqDoYm96vIfGdyPm9qyw7NGVpKyV7q2rqRpq1ANPGrSiew9KTswULyb+rsAZp2S6di8Gmag0h9thznvPQQgybO0iBep4qbpFgacZ2pLJbZ1KpvSwc+x+tr+dLfyuqFqzoBB+mWNx560EIKXPJl+HcHl5GKd7QXVai9bQc2sW8agdBncOgzsCNl9fvO6so6uoGZqxt1NYhh3IFD3XJuJ0cTCp6OTdjht4-C66YEHO7Ypsp7nMHMP9boh9PdNkvlt9sDK4Gu2tZquus45gSjtwLLm6Lstvot9uTDK0W0fFv16+J6ByCjvmx9LCeE4xmeNbn4PIGwReZaH3B87XpWN59suwKBW29-Tw-++lwfCCOnKC5Rst3633r6IDxT761yPoPXAqAeajwvt-UuQMGZ30ZvvTOMMXaD2Xpgd+58PxQLbmXOi4Eq6AKSogwmz97zDxwBAzBV9E5-3pqneekA+5IMavDQcqBzYYPnGOFW193bJ2ggQ5mTsn7IL0qfVeitxISWgatUBfDBrwPTizYB6U8CEF5hI+chVpEgQMnIoOii6rCMOvpbAZ8NHLi0dgoGC45F0P3guZR3lcAUAoZoqhq1UA702t3NOzlDFMI+rNQcCsY4XxXO4nRndA4CPUq9YhIjBKEEIKQdB5j1wRNMKfPRMTxCOM+qQZ8HDlz5x-qYMBtickuUcdgNhwTXHFIyVZNhcifH0NZgEpe2BCCpNCeJEp2i3TYHVptau9tdp5OwEM06vT5zkVKVZfA2SFG7VQkYhu6AiD1OnHMgZTS8G72WUlPaazib4Dwls8sOyrEeJobFVp+84nsxIb5QchsemFwvpvXZdFb74MOTVR+HTXanxHsbT+5YuGT2vtAeSdzKk6yBQJeGt0J5FOnI0kwT4Kn-PUnkz66iZlkQxfLbFNcBrVKIJlC5Vz0Z5jorcgaoye6xIpaQPAFyWYYpZqSsZRz2nxMOvLLpHKpHXJKjZOBZKoblA3PAVM6YEABEGAgeYUB8yyo6EIGQMgvQICcMpQUPBGhTnBVHG0sgADuXBsyaAgt+Fg7QkAXhDJWSQQgLQCB4FOLwvA+jsDCe0BkQgqgQDXJ+bCTglA9ibBGtQ2q2hhtbNhfIIhOiMB7B2bCggBBjB7N2bCwwwBMB7H2bCARrUyDDGGgc2EGTWoYOmsNw5k1CGYMwLgjawljmwrkdtnbJHtAAFJcFTPQDtI5azYV0KIVYAhGBVrCTGp4jQeA8HkCq-t84k0gEHeaagNoRyZpAHWtM6aTRIGEDISQ1BrSTAEFUDQIAuDMFcEgX8XQZCPsGIYagNRJCcCgpMaYIALXLDWGIFIJo3VVBqIwV977LRfqQD+v9AGJhTGoPAUDKx1jRBTOa+DH6kMoeoP+vc6HgPYfA3huVCAABehHEMOm-b+0jaHIBAcwyBsDuHIPwBtKsATjGTzMeQ6xsjgGMNYZ4xBoRIBfxCHdAIBAXBhOftEyRiTFGuNUd43Jw89BkyHgtWp4j4n2Ocekzh2TUH3Uqp4K4SQSAwCuEnaAFjqHyMcak9x6zxoTQqC4MGaghhL3XtvWaB9DpoOwdcIF4LZnPOScozJnE+lVkgGTAR+LahEtsa85Z3z1GUgxBZo-TL9G4sCCC7ljT5mCs+d07JmImAxqao9Q5pzLm3MgA8-l5LOnUuQYC9V4LhhpByBYIoOYvRH1al2PsQ4tg1R-AALSEmeNcOUJw-ipDRNKWUK3wwgBVHqI7kA2tjAvYwGrdHqDvFGIea9PBdVQBtEFmg8BGAjGTEsazuQbvuhqANr7P3dBVGaKsLgOJJTui4DQYM32GQCBzO0HVPAuBMHkJWX8IwrtqtAPTfRsUwVezmXrJeRAKzcUlby5mLo0WfgchT4+eECI09njiwUjOJIs5AV06n41afMvEKT02vPs7H30oZDnYNKlAkZ4VPnuFfLdll94ypNiP5eyV5LpFn1hzq4AVzi7Yv16XWV01QcLUjcVSlepeIjOLd69wjNVstuHqVIZ2k0szuB6iJOiAD38j7dQBBozkplvPqeKD0L2Kdj07h595Hl3vkEZI2D-cxRhII9fktyTAgsfCec9D5ASUjPzZPISX5U+TZg8J+cuXn3lf894Q9pnzXNkK959TwbPswfieELNxfeOUfVG1nr5U-2jPR+94jv3uPjLKl-xnz3-3glc4dg7yblfPvZ-r4fIOJuA-Kn+kZ5vfP+kR6T5N2fn3F-e-L1IAv4vXdT-D4-A-g-+lT5F--m6QfXuD-asb+fPV+bKP-YXXxIfbXU2UAufMBOvRfEZKfYAhseAg-VBQ3ZA7GZfNAr+NfZ5PAa3AcE-E3UcfAiFQg6vBGNhSAkvOndSHPH3TlZnXvfSTAF-f-fhcghXFg3XdfN2NRegg5UvLXHnAQogkxLfHAu3Rg47CQ6gw6HyFxMgsQ73QlacP3Z5DKYeCfWQngsQpPTQ8sFPA-JJFJEQzaBvI5Ywj5PpJQj6LKApKwlCLPXaSgsBRwnOFJfQ1-FA8gzwswog0qbpVwgAzXR3Fg8nVPeGKZcIz3cgqIkwmcbw1nDZMcbfUvDQ+w2ZNIkBAgLg+mJlaAgFSgr-HQ15KlLI+QsvTwyFKvZhEFJA-w3AwI2A9eCXQQrpQSBImFSpZI3IolNgwQ-FPokotpHI8FGIzAmabA1olOTXZglIrokItld3AwhmUvOw8FVggVfWIVTIjVSibQC1b7GQbQMAXMOQHMR9VAVbJdD8fOXAdbR46sfOTAVbSdMJciUgVbfNSBSsdAVbI9EKSsbAdbCsdeUKUcVbbdD8ciGcVbUtC+fOBcVbZtLtSsNhSE02NEv4t44ubE4E1IzomE4E74j8KODAOElubEiEzlToxEiEzEi6bEwcZE02REjk0EkA7Ev41k94oPcoIAA</i><br>
-  </h4>
-  
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-<div id="lines" class="tabcontent">
-  <h4>
-  <a href="https://www.dailyfaceoff.com/teams/" target="_blank">Daily Faceoff - Line Combos</a><br>
-  <a href="https://frozenpool.dobbersports.com/frozenpool_lastgamelines.php" target="_blank">Dobber Line Combos</a><br>
-  <a href="https://frozenpool.dobbersports.com/frozenpool_news.php?team=ALL&position=ALL&player=0&show=PU" target="_blank">DobberHockey Player Update<br></a>
-  <a href="https://www.cbssports.com/fantasy/hockey/players/news/all/" target="_blank">CBS sports Player Updates</a><br>
-  <a href="https://www.rotowire.com/hockey/news.php" target="_blank">Rotowire Player Updates</a><br> 
-</h4>
-<span onclick="this.parentElement.style.display='none'">x</span>
-</div>
-
-
 
 <script>
 function openCity(evt, cityName) {
@@ -175,26 +360,19 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+// Optional: Close all tabs on page load (default: only buttons visible)
+window.onload = function() {
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  var tablinks = document.getElementsByClassName("tablinks");
+  for (var i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+};
 </script>
-                
-
-                       
-                
-                <br><br><br><br><br><br><br><br><br><br><br><br>
-                <b>League Documents</b>
-                <br>
-                <a href="Wannabe GM Fantasy Hockey League Rules.pdf" target="_blank">Wannabe a GM - Fantasy Hockey League Rulebook</a><br>
-                <br><br><br></h4>
-
-          
-        </div>
-    </main>
-
-    <footer>
-        <p>© WannabeGM Fantasy Hockey League. Skate or be skated.</p>
-    </footer>
-
-    <script>
 
 </body>
 </html>

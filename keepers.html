@@ -1,76 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WannabeGM Hockey League</title>
-    <link rel="stylesheet" href="hockey-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WannabeGM Hockey League – Keepers</title>
+  
+  <!-- Favicon using your logo -->
+  <link rel="icon" type="image/jpeg" href="./Wannabelogo.jpeg" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1117;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --accent-dark: #3b82f6;
+      --highlight: #ef4444;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --logo-shadow: 0 0 20px rgba(96,165,250,0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(96,165,250,0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(239,68,68,0.05) 0%, transparent 20%);
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container {
+      margin-bottom: 1.5rem;
+    }
+    .logo {
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(var(--logo-shadow));
+    }
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(96,165,250,0.3);
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0 3rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      background: rgba(96,165,250,0.1);
+    }
+    .nav-links a:hover {
+      background: rgba(96,165,250,0.25);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      text-align: left;
+    }
+    .tab {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .tablinks {
+      background: rgba(96,165,250,0.1);
+      color: var(--text);
+      border: none;
+      padding: 0.8rem 1.4rem;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .tablinks:hover {
+      background: rgba(96,165,250,0.3);
+    }
+    .tablinks.active {
+      background: var(--accent);
+      color: white;
+    }
+    .tabcontent {
+      display: none;
+      background: rgba(30,41,59,0.7);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      animation: fadeEffect 0.5s;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .tabcontent h4 {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .tabcontent a {
+      color: var(--accent);
+      text-decoration: none;
+      display: block;
+      margin: 0.5rem 0;
+    }
+    .tabcontent a:hover {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+    .close-btn {
+      float: right;
+      color: #94a3b8;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-top: -0.5rem;
+    }
+    .close-btn:hover {
+      color: var(--highlight);
+    }
+    .nonkeeper {
+      background: rgba(239,68,68,0.1);
+      border-left: 4px solid var(--highlight);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .logo { max-width: 240px; }
+      .nav-links { flex-direction: column; gap: 0.8rem; }
+      .tab { flex-direction: column; }
+      section { padding: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">WannabeGM Hockey League</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="links.html">Links</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="fame.html">Hall of Fame</a></li>
 
-                </ul>
-            </nav>
-        </div>
-    </header>
+<div class="container">
+  <header>
+    <div class="logo-container">
+      <img src="./Wannabelogo.jpeg" alt="WannabeGM Hockey League Logo" class="logo">
+    </div>
+    <h1>WannabeGM Hockey League</h1>
+    <p class="subtitle">Keepers & Roster Info</p>
 
-    <section class="hero">
-        <div class="container">
-            <h2>
-            <a href="https://hockey.fantasysports.yahoo.com/hockey/3578" target="_blank">Yahoo Site Link: Wannabe a GM - Season 22</a><br></h2>
-            
-        </div>
-    </section>
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="index.html">← Home</a>
+      <a href="links.html">Links</a>
+      <a href="fame.html">Hall of Fame</a>
+      <a href="media.html">Media</a>
+      <!-- Add more if needed -->
+    </nav>
+  </header>
 
-      <div class="nonkeeper">
-        <br><font color="#C04000">
-        <h4><u><b>Super keepers unable to be kept for 2025-26:<br></b></u></font>
-        <font color="#3A3B3C">
-        <i class="fa fa-ban"></i>
-        Brady Tkachuk<br>
-        <i class="fa fa-ban"></i>
-        Leon Draisaitl<br>
-        <i class="fa fa-ban"></i>
-        Adam Fox<br>
-        <i class="fa fa-ban"></i>
-        Tage Thompson<br>
-        <i class="fa fa-ban"></i>
-        
-        </font></h4>
-<br><br><br>
-<h4>WannabeGMs for 2024</h4>
-<font color="#3A3B3C">Click on the buttons inside the tabbed menu:</font>
+  <section>
+    <h2>2025-26 Keepers & Roster Notes</h2>
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Pierre')">Pierre</button>
-  <button class="tablinks" onclick="openCity(event, 'Josef')">Josef</button>
-  <button class="tablinks" onclick="openCity(event, 'Maran')">Maran</button>
-  <button class="tablinks" onclick="openCity(event, 'Duncan')">Duncan</button>
-  <button class="tablinks" onclick="openCity(event, 'Harrington')">Harrington</button>
-  <button class="tablinks" onclick="openCity(event, 'Anthony')">Anthony</button>
-  <button class="tablinks" onclick="openCity(event, 'Mulvihill')">Mulvihill</button>
-  <button class="tablinks" onclick="openCity(event, 'Symmington')">Symmington</button>
-  <button class="tablinks" onclick="openCity(event, 'Kevin')">Kevin</button>
-  <button class="tablinks" onclick="openCity(event, 'Martin')">Martin</button>
-  <button class="tablinks" onclick="openCity(event, 'Duggan')">Duggan</button>
-  <button class="tablinks" onclick="openCity(event, 'Jadrian')">Jadrian</button>
-  <button class="tablinks" onclick="openCity(event, 'Egan')">Egan</button>
-  <button class="tablinks" onclick="openCity(event, 'Mini')">Mini</button>
-  <button class="tablinks" onclick="openCity(event, 'Patrick')">Patrick</button>
+    <!-- Non-keeper warning -->
+    <div class="nonkeeper">
+      <h4><u><b>Super keepers unable to be kept for 2025-26:</b></u></h4>
+      <p>
+        <i class="fa fa-ban"></i> Brady Tkachuk<br>
+        <i class="fa fa-ban"></i> Leon Draisaitl<br>
+        <i class="fa fa-ban"></i> Adam Fox<br>
+        <i class="fa fa-ban"></i> Tage Thompson
+      </p>
+    </div>
 
-  
-</div>
+    <h3>WannabeGMs for 2024</h3>
+    <p>Click on the buttons inside the tabbed menu:</p>
 
-<div id="Harrington" class="tabcontent">
+    <!-- Team Keepers tabs -->
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Pierre')">Pierre</button>
+      <button class="tablinks" onclick="openCity(event, 'Josef')">Josef</button>
+      <button class="tablinks" onclick="openCity(event, 'Maran')">Maran</button>
+      <button class="tablinks" onclick="openCity(event, 'Duncan')">Duncan</button>
+      <button class="tablinks" onclick="openCity(event, 'Harrington')">Harrington</button>
+      <button class="tablinks" onclick="openCity(event, 'Anthony')">Anthony</button>
+      <button class="tablinks" onclick="openCity(event, 'Mulvihill')">Mulvihill</button>
+      <button class="tablinks" onclick="openCity(event, 'Symmington')">Symmington</button>
+      <button class="tablinks" onclick="openCity(event, 'Kevin')">Kevin</button>
+      <button class="tablinks" onclick="openCity(event, 'Martin')">Martin</button>
+      <button class="tablinks" onclick="openCity(event, 'Duggan')">Duggan</button>
+      <button class="tablinks" onclick="openCity(event, 'Jadrian')">Jadrian</button>
+      <button class="tablinks" onclick="openCity(event, 'Egan')">Egan</button>
+      <button class="tablinks" onclick="openCity(event, 'Mini')">Mini</button>
+      <button class="tablinks" onclick="openCity(event, 'Patrick')">Patrick</button>
+    </div>
+
+    <div id="Harrington" class="tabcontent">
 <i><font color="blue">
 Potential Rookie Keepers: <i><font color="olive">Matvei Michkov, Jet Greaves </font><font color="blue"></font></i><br>
 Potential Sophomore Keeper: <i><font color="olive">Samuel Ersson</i></font><br>
@@ -235,39 +416,20 @@ Social Media:<br>
 </div>
 
 
+    <!-- Repeat similar structure for other teams (Duggan, Duncan, etc.) – copy your original content into each <div id="..."> -->
+    <!-- For brevity, only one example shown; paste your full team content here -->
 
-
-
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
-<br><br>
-<br><br>
-
-        <h4><b><u>Summer Trades Archive</h4><br><i></i></u>
-        
-
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, '25')">2025-26</button>
-  <button class="tablinks" onclick="openCity(event, '24')">2024-25</button>
-  <button class="tablinks" onclick="openCity(event, '23')">2023-24</button>
-  <button class="tablinks" onclick="openCity(event, '22')">2022-23</button>
-  <button class="tablinks" onclick="openCity(event, '20')">2020-21</button>
-  <button class="tablinks" onclick="openCity(event, '18')">2018-19</button>
-  <button class="tablinks" onclick="openCity(event, 'notes')">Notes</button>
-</div>
+    <!-- Summer Trades Archive tabs -->
+    <h3>Summer Trades Archive</h3>
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, '25')">2025-26</button>
+      <button class="tablinks" onclick="openCity(event, '24')">2024-25</button>
+      <button class="tablinks" onclick="openCity(event, '23')">2023-24</button>
+      <button class="tablinks" onclick="openCity(event, '22')">2022-23</button>
+      <button class="tablinks" onclick="openCity(event, '20')">2020-21</button>
+      <button class="tablinks" onclick="openCity(event, '18')">2018-19</button>
+      <button class="tablinks" onclick="openCity(event, 'notes')">Notes</button>
+    </div>
 
 <div id="25" class="tabcontent">
         <b><u><font color="red">--Summer Trades 2025-26-- </font></u></b><br>
@@ -360,6 +522,34 @@ function openCity(evt, cityName) {
     <footer>
         <p>© WannabeGM Fantasy Hockey League. Skate or be skated.</p>
     </footer>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Ensure no tab content shows on page load
+window.onload = function() {
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  var tablinks = document.getElementsByClassName("tablinks");
+  for (var i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+};
+</script>
 
 </body>
 </html>
