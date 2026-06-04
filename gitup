@@ -2,12 +2,13 @@
 
 echo "=== WannabeGM Quick Upload ==="
 echo "Repository: $(git remote get-url origin)"
+echo "Branch: $(git branch --show-current)"
 echo "----------------------------------------"
 
-# Add all changes
+# Add changes
 git add .
 
-# Show status
+# Show what will be committed
 echo "Files to be committed:"
 git status --short
 echo "----------------------------------------"
@@ -27,9 +28,9 @@ fi
 # Commit
 git commit -m "$message" || { echo "❌ Commit failed!"; exit 1; }
 
-# Push with GitHub CLI
+# Push (using normal git push instead of gh repo sync)
 echo "Pushing to GitHub..."
-gh repo sync || { echo "❌ Push failed!"; exit 1; }
+git push origin $(git branch --show-current) || { echo "❌ Push failed!"; exit 1; }
 
 echo "✅ Successfully pushed!"
 echo "Done at $(date)"
