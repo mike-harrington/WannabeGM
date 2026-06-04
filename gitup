@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "=== WannabeGM Quick Upload ==="
+echo "Repository: $(git remote get-url origin)"
+echo "----------------------------------------"
+
+# Add all changes
+git add .
+
+# Show status
+echo "Files to be committed:"
+git status --short
+echo "----------------------------------------"
+
+# Get commit message
+if [ -n "$1" ]; then
+    message="$1"
+    echo "Commit message: $message"
+else
+    read -p "Enter commit message: " message
+    if [ -z "$message" ]; then
+        echo "❌ Error: Commit message cannot be empty!"
+        exit 1
+    fi
+fi
+
+# Commit
+git commit -m "$message" || { echo "❌ Commit failed!"; exit 1; }
+
+# Push with GitHub CLI
+echo "Pushing to GitHub..."
+gh repo sync || { echo "❌ Push failed!"; exit 1; }
+
+echo "✅ Successfully pushed!"
+echo "Done at $(date)"
