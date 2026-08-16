@@ -32,17 +32,17 @@
                     <h3>
                         <a href="https://mega.nz/file/cwdmXK5Y#9K0VewAEcJIUU4vnQOaDEPbrKWJw_QuD7WyBaMOKnsw" target="_blank">Draft Day 2025 Mix</a>
                     </h3>
-                    <button class="toggle-image-btn" onclick="toggleImage()">Show Track Details</button>
-                    <div class="image-container" id="trackImageContainer">
-                        <img src="Draft Day Mix 2025.png" alt="Track Details for Draft Day 2024 Mix">
+                    <button class="toggle-image-btn" onclick="toggleImage('trackImageContainer2025', this)">Show Track Details</button>
+                    <div class="image-container" id="trackImageContainer2025">
+                        <img src="Draft Day Mix 2025.png" alt="Track Details for Draft Day 2025 Mix">
                     </div>
                 </div>
                 <div class="draft-mix">
                     <h3>
                         <a href="https://mega.nz/file/95tySBqQ#C1GBaKQ7iw_gt66llZPO-xGGwPeWiGEPInIPOOTPwlM" target="_blank">Draft Day 2024 Mix</a>
                     </h3>
-                    <button class="toggle-image-btn" onclick="toggleImage()">Show Track Details</button>
-                    <div class="image-container" id="trackImageContainer">
+                    <button class="toggle-image-btn" onclick="toggleImage('trackImageContainer2024', this)">Show Track Details</button>
+                    <div class="image-container" id="trackImageContainer2024">
                         <img src="Draft Day Mix 2024.png" alt="Track Details for Draft Day 2024 Mix">
                     </div>
                 </div>
@@ -76,9 +76,8 @@
     </footer>
 
     <script>
-        function toggleImage() {
-            const container = document.getElementById('trackImageContainer');
-            const button = document.querySelector('.toggle-image-btn');
+        function toggleImage(id, button) {
+            const container = document.getElementById(id);
             const isExpanded = container.style.display === 'none' || container.style.display === '';
             container.style.display = isExpanded ? 'block' : 'none';
             button.textContent = isExpanded ? 'Hide Track Details' : 'Show Track Details';
@@ -86,7 +85,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('trackImageContainer').style.display = 'none';
+            document.querySelectorAll('.image-container').forEach(function(el) {
+                el.style.display = 'none';
+            });
         });
     </script>
 </body>

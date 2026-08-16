@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WannabeGM Hockey League – New Ice, New Faces</title>
+
+  <!-- Favicon using your logo -->
+  <link rel="icon" type="image/jpeg" href="./Wannabelogo.jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1117;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --accent-dark: #3b82f6;
+      --highlight: #ef4444;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --logo-shadow: 0 0 20px rgba(96,165,250,0.4);
+      --riley: #60a5fa;
+      --gordie: #eab308;
+      --vinnie: #ef4444;
+      --larry: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(96,165,250,0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(239,68,68,0.05) 0%, transparent 20%);
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container { margin-bottom: 1rem; }
+    .logo {
+      max-width: 220px;
+      height: auto;
+      filter: drop-shadow(var(--logo-shadow));
+    }
+    h1.site-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      background: rgba(96,165,250,0.1);
+    }
+    .nav-links a:hover {
+      background: rgba(96,165,250,0.25);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    a { color: var(--accent); }
+    a:hover { color: #93c5fd; }
+
+    article { margin: 2.5rem 0; }
+
+    .article-meta {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .article-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.3rem;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+    .lede {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2.section-head {
+      font-family: 'Poppins', sans-serif;
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .quote {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--speaker-color, var(--accent));
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .quote.riley  { --speaker-color: var(--riley); }
+    .quote.gordie { --speaker-color: var(--gordie); }
+    .quote.vinnie { --speaker-color: var(--vinnie); }
+    .quote.larry  { --speaker-color: var(--larry); }
+
+    .speaker {
+      display: block;
+      font-weight: 700;
+      color: var(--speaker-color, var(--accent));
+      margin-bottom: 0.4rem;
+      font-size: 0.98rem;
+    }
+    .speaker .role {
+      font-weight: 500;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+    .quote p { color: #e2e8f0; }
+
+    .predictions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .prediction-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--speaker-color, var(--accent));
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+    }
+    .prediction-card .speaker { margin-bottom: 0.5rem; }
+
+    table.dates-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 2rem;
+      font-size: 0.95rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .dates-table th, .dates-table td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .dates-table th {
+      background: rgba(96,165,250,0.1);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .dates-table tr:last-child td { border-bottom: none; }
+    .dates-table tr:hover { background: rgba(96,165,250,0.05); }
+
+    .sign-off {
+      font-style: italic;
+      color: #cbd5e1;
+      margin: 1.5rem 0;
+    }
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .back-link { display: inline-block; margin-top: 1rem; font-weight: 600; }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .article-title { font-size: 1.7rem; }
+      .nav-links { gap: 0.6rem; }
+      .container { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo-container">
+      <img src="./Wannabelogo.jpeg" alt="WannabeGM Hockey League Logo" class="logo">
+    </div>
+    <h1 class="site-title">WannabeGM Hockey League</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="links.html">Links</a>
+      <a href="keepers.html">Keepers</a>
+      <a href="media.html">Media</a>
+      <a href="fame.html">Hall of Fame</a>
+    </nav>
+  </header>
+
+  <article>
+    <p class="article-meta">League Buzz · August 16, 2026 · The WannabeGM Roundtable</p>
+    <h1 class="article-title">New Ice, New Faces: Season 23 Skates In September 26th</h1>
+    <p class="lede">The gang's back on the stools for the summer's last sit-down before puck drop. Same four voices you know: Riley "The Scoop" Malone bringing the numbers, Gordie "The Grizzly" MacTavish bringing the war stories, Vinnie "The Scream" Russo bringing the volume, and Larry the Zamboni Driver bringing... whatever Larry brings. Let's get into it.</p>
+
+    <h2 class="section-head">The Reigning Champ</h2>
+
+    <div class="quote riley">
+      <span class="speaker">Riley "The Scoop" Malone <span class="role">— Hockey Insider</span></span>
+      <p>Alright, gang, let's start where we left off — congrats are still owed to Jadrian, our reigning 2025-26 WannabeGM Champion. "Boog" finally gets to hang the banner, and knowing this league, he's already reminding everybody about it in the group chat. Enjoy it while it lasts, champ — the Draft Lotto already ran this summer, and half the league's spent all offseason plotting the comeback.</p>
+    </div>
+
+    <div class="quote gordie">
+      <span class="speaker">Gordie "The Grizzly" MacTavish <span class="role">— Old-Timer</span></span>
+      <p>A champion's a champion, and I tip my cap — but don't get comfortable, kid. I've watched more repeat champs get bounced in the first round than I've had cold beers, and that's sayin' somethin'. Last year's roto race went right down to the wire, and if the Lotto Pick spots shake out the way they usually do, we could have a whole new crop of contenders crashing the party this year. This league doesn't hand out second helpings easy.</p>
+    </div>
+
+    <h2 class="section-head">Around the League: NHL Offseason Roundup</h2>
+
+    <div class="quote vinnie">
+      <span class="speaker">Vinnie "The Scream" Russo <span class="role">— Foul-Mouthed Sportscaster</span></span>
+      <p>You want a real headline? The NHL had itself a summer, folks! Carolina finally got theirs — first Cup since '06 — and instead of running it back quiet, half the league went and got weird. Ottawa trades their own captain, Brady Tkachuk, and turns around with Burakovsky and Eklund like it's a garage sale! Nurse gets moved! You can't make this stuff up!</p>
+    </div>
+
+    <div class="quote riley">
+      <span class="speaker">Riley "The Scoop" Malone <span class="role">— Hockey Insider</span></span>
+      <p>It's been a strange market too — real quiet on the actual free agent side. Everybody's just re-upping at home instead of testing it, but the "highest-paid" crown keeps changing hands anyway: Kaprizov's record deal from last year already got topped by Carlsson's offer sheet, and now Celebrini's inked the richest AAV in league history at $18.8 million — though that one doesn't even kick in until '27-28. And word out of Colorado is Makar's not going anywhere either. Good for all of them, bad for anybody who was hoping for fireworks in July.</p>
+    </div>
+
+    <div class="quote gordie">
+      <span class="speaker">Gordie "The Grizzly" MacTavish <span class="role">— Old-Timer</span></span>
+      <p>Back in my day you played out your contract and took what the team offered, end of story. This "player empowerment" business the kids keep yappin' about — everybody locking in years early, picking their own city — I don't know whether to tip my cap or shake my head. Either way, it's making our keeper decisions a whole lot trickier, 'cause fewer of these guys are ever hitting the open market to shake up value.</p>
+    </div>
+
+    <h2 class="section-head">By the Numbers: What the 84-Game Slate Means for Us</h2>
+
+    <div class="quote larry">
+      <span class="speaker">Larry the Zamboni Driver <span class="role">— Random Addition</span></span>
+      <p>Here's the one that matters to us, though — league bumped the regular season up to 84 games a team this year. Longest slate on record. More games on the ice means more games to actually fill your lineup with, folks — don't be leaving those extra starts on the bench come October. I'll be out there resurfacing the rink for all 84 of 'em, don't you worry.</p>
+    </div>
+
+    <div class="quote riley">
+      <span class="speaker">Riley "The Scoop" Malone <span class="role">— Hockey Insider</span></span>
+      <p>And it's not just about clicking "set lineup" more often — remember our positional math. 4 centers, 5 wingers, 4 defencemen, and 2 goalies, all times 65 games a slot, is your season-long games-played ceiling at each spot. An 84-game slate doesn't raise those caps, it just means more real games are going to bump up against them — so bench management and staying ahead of your IR/NA slots matters more this year, not less.</p>
+    </div>
+
+    <div class="quote gordie">
+      <span class="speaker">Gordie "The Grizzly" MacTavish <span class="role">— Old-Timer</span></span>
+      <p>Larry's not wrong for once, and Riley's right behind him. Back in my day we didn't get extra games handed to us, we earned every shift! But I'll take it — more hockey's more hockey. Set them lineups every single night, or you're leavin' points on the table before the season even starts, same as always.</p>
+    </div>
+
+    <h2 class="section-head">Bold, Mostly Unhinged Predictions for Season 23</h2>
+
+    <div class="predictions-grid">
+      <div class="prediction-card">
+        <span class="speaker" style="--speaker-color: var(--riley);">Riley</span>
+        <p>Whoever wins the two open Lotto Pick slots at the top of the order takes it to the bank early and doesn't look back. Draft position still wins championships in this league.</p>
+      </div>
+      <div class="prediction-card">
+        <span class="speaker" style="--speaker-color: var(--gordie);">Gordie</span>
+        <p>A team currently sitting outside the top five in prior-year rank finishes on the podium this season. It happens every few years, and it's due.</p>
+      </div>
+      <div class="prediction-card">
+        <span class="speaker" style="--speaker-color: var(--vinnie);">Vinnie</span>
+        <p>Somebody's gonna forget their Super Keeper deadline and I will personally never let them live it down. Mark it down!</p>
+      </div>
+      <div class="prediction-card">
+        <span class="speaker" style="--speaker-color: var(--larry);">Larry</span>
+        <p>The Zamboni holds up for all 84 games. That's my only guarantee, and it's a good one.</p>
+      </div>
+    </div>
+
+    <h2 class="section-head">Mark Your Calendars</h2>
+
+    <table class="dates-table">
+      <thead>
+        <tr><th>Date</th><th>Event</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Summer</td><td>WannabeGM Draft Lotto (complete)</td></tr>
+        <tr><td>Sep 19</td><td>NHL Pre-Season begins</td></tr>
+        <tr><td>Sep 26</td><td>WannabeGM Draft Day — Season 23, El Casa Del Blakely</td></tr>
+        <tr><td>Sep 29</td><td>NHL Regular Season begins</td></tr>
+        <tr><td>Oct 25</td><td>Heritage Classic (Canadiens vs Jets)</td></tr>
+        <tr><td>Nov</td><td>NHL Global Series (Carolina vs Seattle / Chicago vs Ottawa)</td></tr>
+        <tr><td>Feb</td><td>NHL All-Star Weekend</td></tr>
+      </tbody>
+    </table>
+
+    <div class="quote vinnie">
+      <span class="speaker">Vinnie "The Scream" Russo <span class="role">— Foul-Mouthed Sportscaster</span></span>
+      <p>Draft Day is September 26th, people — El Casa Del Blakely, same as always, so get your rankings sorted and your trash talk sharpened! Preseason's already dropping the puck September 19th, and the real thing gets going September 29th. Circle it, tattoo it, whatever you gotta do — just don't miss it!</p>
+    </div>
+
+    <div class="quote riley">
+      <span class="speaker">Riley "The Scoop" Malone <span class="role">— Hockey Insider</span></span>
+      <p>That's the offseason in a nutshell — a champion still riding high, a wide-open Lotto board, a league-wide spending freeze, and a few teams that decided quiet wasn't for them. Get your keeper decisions locked, check the Draft Order table on the homepage, and we'll see everybody at the table on the 26th.</p>
+    </div>
+
+    <p class="sign-off">Larry (RA): Vroom vroom, folks. See you on the ice.</p>
+
+    <p class="disclaimer">AI generated review — seemed close enough. If it's not right, speak to your current/soon-to-be AI overlord representative. Thank you.</p>
+
+    <a class="back-link" href="index.html">&larr; Back to League Buzz</a>
+  </article>
+
+  <div class="footer">
+    WannabeGM Hockey League – Season 23 • Maintained by: Harrington
+  </div>
+</div>
+
+</body>
+</html>
