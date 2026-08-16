@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WannabeGM Hockey League – Draft Lotto</title>
+
+  <!-- Favicon using your logo -->
+  <link rel="icon" type="image/jpeg" href="./Wannabelogo.jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1e293b;
+    --surface-2: #16202f;
+    --surface-3: #0c1420;
+    --border: #334155;
+    --ice: #60a5fa;
+    --ice-dim: #3b82f6;
+    --brass: #e8b95a;
+    --brass-dim: #b8903f;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-faint: #64748b;
+    --success: #34d399;
+    --danger: #ef4444;
+    /* aliases matching the rest of the site's palette, same underlying colors */
+    --accent: var(--ice);
+    --accent-dark: var(--ice-dim);
+    --highlight: var(--danger);
+    --card-bg: var(--surface);
+    --logo-shadow: 0 0 20px rgba(96,165,250,0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(96,165,250,0.06) 0%, transparent 22%),
+      radial-gradient(circle at 92% 88%, rgba(232,185,90,0.05) 0%, transparent 24%);
+    background-attachment: fixed;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  /* site header, matches index.html / keepers.html / fame.html / links.html */
+  header {
+    text-align: center;
+    padding: 3rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25rem;
+  }
+  .logo-container { margin-bottom: 1.25rem; }
+  .logo {
+    max-width: 220px;
+    height: auto;
+    filter: drop-shadow(var(--logo-shadow));
+  }
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.6rem;
+    color: var(--accent);
+    margin: 0 0 0.4rem;
+    text-shadow: 0 0 20px rgba(96,165,250,0.3);
+  }
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    margin: 0 0 1.25rem;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0 0 1.5rem;
+  }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    background: rgba(96,165,250,0.1);
+  }
+  .nav-links a:hover {
+    background: rgba(96,165,250,0.25);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .lead-desc {
+    margin: 0 auto;
+    max-width: 56ch;
+    color: var(--text-dim);
+    font-size: 0.98rem;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+  }
+  .panel-head h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    margin: 0;
+    color: var(--text);
+  }
+  .panel-desc { color: var(--text-dim); font-size: 0.88rem; margin: -0.5rem 0 1rem; }
+  .panel-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+  /* rules disclosure */
+  details.rules { padding: 1.1rem 1.4rem; }
+  details.rules summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ice);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  details.rules summary::-webkit-details-marker { display: none; }
+  details.rules summary::before {
+    content: "▸";
+    display: inline-block;
+    transition: transform 0.18s ease;
+    color: var(--brass);
+  }
+  details.rules[open] summary::before { transform: rotate(90deg); }
+  details.rules ul {
+    margin: 0.9rem 0 0.2rem;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+  details.rules li strong { color: var(--text); }
+
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--border);
+    background: rgba(96,165,250,0.08);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn:hover:not(:disabled) { background: rgba(96,165,250,0.18); border-color: var(--ice-dim); }
+  .btn:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+  .btn.primary {
+    background: linear-gradient(180deg, var(--brass), var(--brass-dim));
+    color: #1a1305;
+    border-color: var(--brass-dim);
+  }
+  .btn.primary:hover:not(:disabled) { filter: brightness(1.08); }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn.danger-ghost:hover:not(:disabled) { background: rgba(239,68,68,0.12); border-color: var(--danger); }
+
+  .table-scroll { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 420px; }
+  th, td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+  thead th {
+    background: var(--surface-2);
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: rgba(96,165,250,0.04); }
+
+  .roster-table input[type="text"], .roster-table input[type="number"] {
+    font: inherit;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 0.35rem 0.5rem;
+  }
+  .roster-table input[type="text"] { width: 11rem; }
+  .roster-table input[type="number"] { width: 4.5rem; }
+  .roster-table input:focus-visible { outline: 2px solid var(--ice); outline-offset: 1px; }
+  .roster-table input:invalid { border-color: var(--danger); }
+
+  .pay-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  .pay-toggle input { accent-color: var(--brass); width: 1rem; height: 1rem; }
+
+  .row-remove {
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+  }
+  .row-remove:hover { color: var(--danger); background: rgba(239,68,68,0.1); }
+
+  .validation {
+    margin: 0.75rem 0 0;
+    font-size: 0.85rem;
+    min-height: 1.2em;
+  }
+  .validation.ok { color: var(--success); }
+  .validation.err { color: var(--danger); }
+
+  .hint { color: var(--text-dim); font-size: 0.88rem; margin: 0.6rem 0 0; }
+
+  /* homepage-style order table, shared by preview + live reveal */
+  .order-table .lotto-placeholder {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text-dim);
+  }
+  .order-table .hidden-name {
+    font-style: italic;
+    color: var(--text-faint);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .order-table tr.next-up { outline: 1px dashed var(--brass); outline-offset: -1px; }
+  .order-table tr.just-revealed { animation: settle-flash 0.9s ease; }
+  @keyframes settle-flash {
+    0% { background: rgba(232,185,90,0.22); }
+    100% { background: transparent; }
+  }
+  .order-table .name-cell.drawing { color: var(--text-dim); }
+  .slot-delta {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    margin-left: 0.35rem;
+  }
+  .slot-delta.up { color: var(--success); background: rgba(52,211,153,0.12); }
+  .slot-delta.down { color: var(--brass); background: rgba(232,185,90,0.12); }
+  .slot-delta.flat { color: var(--text-faint); background: rgba(148,163,184,0.1); }
+
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.12rem 0.45rem;
+    border-radius: 999px;
+  }
+  .badge.free { color: var(--ice); background: rgba(96,165,250,0.12); }
+  .badge.pay { color: var(--brass); background: rgba(232,185,90,0.14); }
+  .badge.locked { color: var(--text-faint); background: rgba(148,163,184,0.08); }
+
+  .participants-list {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+  .participants-list .heading { color: var(--text); font-weight: 600; margin-bottom: 0.45rem; }
+  .participants-list ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+  .participants-list .p-name { color: var(--brass); font-weight: 600; }
+
+  .reveal-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .progress-text { color: var(--text-dim); font-size: 0.85rem; }
+  .next-up-text { color: var(--brass); font-size: 0.85rem; font-weight: 600; }
+
+  textarea.copy-out {
+    width: 100%;
+    margin-top: 0.75rem;
+    background: var(--surface-3);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem;
+    font-family: ui-monospace, monospace;
+    font-size: 0.78rem;
+    min-height: 6rem;
+  }
+
+  .audit { margin-top: 1.1rem; }
+  .audit summary { cursor: pointer; color: var(--ice); font-weight: 600; font-size: 0.9rem; }
+  .audit-table td, .audit-table th { font-size: 0.82rem; }
+  .audit-table .cand-list { color: var(--text-faint); font-size: 0.76rem; }
+
+  footer.note {
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .order-table tr.just-revealed { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    .panel { padding: 1.1rem 1.1rem; }
+    h1 { font-size: 2rem; }
+    .logo { max-width: 170px; }
+    .nav-links { gap: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <div class="logo-container">
+      <img src="./Wannabelogo.jpeg" alt="WannabeGM Hockey League Logo" class="logo">
+    </div>
+    <h1>WannabeGM Hockey League</h1>
+    <p class="subtitle">Draft Lotto</p>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="links.html">Links</a>
+      <a href="keepers.html">Keepers</a>
+      <a href="media.html">Media</a>
+      <a href="fame.html">Hall of Fame</a>
+    </nav>
+    <p class="lead-desc">A weighted, capped random draw that decides where the pay-league GMs land in next season's draft order — reward finishing just short, punish a repeat pay-league champ, and keep some real chaos in the mix.</p>
+  </header>
+
+  <details class="panel rules">
+    <summary>How the odds work</summary>
+    <ul>
+      <li><strong>Non-pay GMs</strong> keep their exact finish from last season as next season's draft slot. No lottery, no change.</li>
+      <li><strong>Pay-league GMs</strong> each contribute their own finish position as a slot up for grabs — only those slots get reshuffled, and only among the pay-league group.</li>
+      <li><strong>Weight</strong> = (Total GMs − finish + 2). A 2nd-place finish starts at the top of the field; weight tapers down toward last.</li>
+      <li><strong>Bonus balls</strong>: +42 weight for finishing 2nd, +12 for finishing 3rd — tuned so, among this year's contested field, the 2nd-place finisher lands the top pick more than half the time.</li>
+      <li><strong>Champion penalty</strong>: a pay-league GM who wins the whole league gets weight forced down to 1 — worse odds than dead last.</li>
+      <li><strong>±3 cap</strong>: rank the contested slots themselves best-to-worst (this year that's #2, #3, #8, #9, #12, #15 → positions 1st through 6th among <em>themselves</em>). Nobody can land more than 3 of those positions better or worse than where their own finish sits in that ranking — not 3 raw slot numbers, which would unfairly wall off anyone whose slot isn't numerically close to the top.</li>
+      <li><strong>Draw order vs. reveal order</strong>: the actual weighted math always runs top slot first, worst slot last — that's what determines the odds. But when you're showing it to the room, picks are revealed worst-to-best instead, so the drama builds toward the top pick at the end. The math doesn't change, only the order you find out about it.</li>
+    </ul>
+  </details>
+
+  <section class="panel" id="roster-panel">
+    <div class="panel-head">
+      <h2>1 · Set the field</h2>
+      <div class="panel-actions">
+        <button id="loadCurrent" class="btn">Load Season 23 standings</button>
+        <button id="addRow" class="btn">+ Add GM</button>
+        <button id="clearAll" class="btn danger-ghost">Clear</button>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table class="roster-table">
+        <thead>
+          <tr><th>GM</th><th>Pay league</th><th>Finish</th><th></th></tr>
+        </thead>
+        <tbody id="rosterBody"></tbody>
+      </table>
+    </div>
+    <p class="validation" id="validationMsg" role="status"></p>
+  </section>
+
+  <section class="panel" id="preview-panel">
+    <div class="panel-head">
+      <h2>2 · Homepage preview</h2>
+    </div>
+    <p class="panel-desc">Matches the "League Draft Order Prep" table format on the site homepage — this is what should be posted there before the lottery runs. Updates live as you edit the field above.</p>
+    <div id="previewBody"></div>
+  </section>
+
+  <section class="panel" id="run-panel">
+    <div class="panel-head">
+      <h2>3 · Run &amp; reveal</h2>
+      <button id="lockInBtn" class="btn primary" disabled>Lock In the Draw</button>
+    </div>
+    <p class="hint" id="runHint">Locking in computes the full result instantly and privately — nothing is shown yet. Once locked, reveal picks one at a time, worst slot first, for the room.</p>
+    <div id="orderTableWrap" hidden>
+      <div class="table-scroll"><table class="order-table" id="orderTable"></table></div>
+      <div class="reveal-controls" id="revealControls">
+        <button id="revealNextBtn" class="btn primary">Reveal Next Pick</button>
+        <button id="revealAllBtn" class="btn">Reveal All</button>
+        <span class="progress-text" id="progressText"></span>
+        <span class="next-up-text" id="nextUpText"></span>
+      </div>
+      <div id="resultsFooter" hidden>
+        <div class="panel-head" style="margin-top:1.25rem;">
+          <span class="hint" style="margin:0;">Full draft order revealed.</span>
+          <button id="copyResults" class="btn">Copy as HTML rows</button>
+        </div>
+        <textarea class="copy-out" id="copyOut" readonly hidden></textarea>
+        <details class="audit">
+          <summary>Full draw log, for the record</summary>
+          <div class="table-scroll"><table class="audit-table" id="auditTable"></table></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="note">Draws use the browser's random number generator — good enough for bragging rights, not a notarized drawing. Rerun as many times as you like before the real one counts.</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const CURRENT_SEASON = [
+    { name: "Jadrian",    pay: false, finish: 1 },
+    { name: "Harrington", pay: true,  finish: 2 },
+    { name: "Duggan",     pay: true,  finish: 3 },
+    { name: "Patrick",    pay: false, finish: 4 },
+    { name: "Kevin",      pay: false, finish: 5 },
+    { name: "Josef",      pay: false, finish: 6 },
+    { name: "Symmington", pay: false, finish: 7 },
+    { name: "Mulvihill",  pay: true,  finish: 8 },
+    { name: "Egan",       pay: true,  finish: 9 },
+    { name: "Anthony",    pay: false, finish: 10 },
+    { name: "Maran",      pay: false, finish: 11 },
+    { name: "Cooper",     pay: true,  finish: 12 },
+    { name: "Duncan",     pay: false, finish: 13 },
+    { name: "Martin",     pay: false, finish: 14 },
+    { name: "Pierre",     pay: true,  finish: 15 },
+  ];
+
+  let rows = [];
+  let rowId = 0;
+  let draw = null; // { n, nonLotto, drawLog, revealOrder, revealIndex, complete }
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const $ = (sel) => document.querySelector(sel);
+  const rosterBody = $("#rosterBody");
+  const validationMsg = $("#validationMsg");
+  const lockInBtn = $("#lockInBtn");
+  const runHint = $("#runHint");
+  const orderTableWrap = $("#orderTableWrap");
+  const orderTable = $("#orderTable");
+  const revealControls = $("#revealControls");
+  const revealNextBtn = $("#revealNextBtn");
+  const revealAllBtn = $("#revealAllBtn");
+  const progressText = $("#progressText");
+  const nextUpText = $("#nextUpText");
+  const resultsFooter = $("#resultsFooter");
+  const auditTable = $("#auditTable");
+  const copyBtn = $("#copyResults");
+  const copyOut = $("#copyOut");
+  const previewBody = $("#previewBody");
+  const rosterButtons = () => [$("#addRow"), $("#loadCurrent"), $("#clearAll")];
+
+  function newRow(data) {
+    rowId += 1;
+    return { id: rowId, name: (data && data.name) || "", pay: !!(data && data.pay), finish: data && data.finish != null ? data.finish : null };
+  }
+
+  function loadRows(list) {
+    rows = list.map(newRow);
+    renderRoster();
+  }
+
+  function weightFor(finish, n) {
+    if (finish === 1) return 1;
+    const base = n - finish + 2;
+    const bonus = finish === 2 ? 42 : finish === 3 ? 12 : 0;
+    return base + bonus;
+  }
+
+  function setRosterEditable(editable) {
+    rosterButtons().forEach((b) => { if (b) b.disabled = !editable; });
+    rosterBody.querySelectorAll("input, button.row-remove").forEach((el) => { el.disabled = !editable; });
+  }
+
+  function renderRoster() {
+    const n = rows.length;
+    rosterBody.innerHTML = "";
+    rows.forEach((row) => {
+      const tr = document.createElement("tr");
+
+      const nameTd = document.createElement("td");
+      const nameInput = document.createElement("input");
+      nameInput.type = "text";
+      nameInput.value = row.name;
+      nameInput.placeholder = "GM name";
+      nameInput.addEventListener("input", () => { row.name = nameInput.value; onFieldChanged(); });
+      nameTd.appendChild(nameInput);
+
+      const payTd = document.createElement("td");
+      const payLabel = document.createElement("label");
+      payLabel.className = "pay-toggle";
+      const payInput = document.createElement("input");
+      payInput.type = "checkbox";
+      payInput.checked = row.pay;
+      payInput.addEventListener("change", () => { row.pay = payInput.checked; renderRoster(); });
+      payLabel.appendChild(payInput);
+      payLabel.appendChild(document.createTextNode(row.pay ? "Pay -$" : "Free"));
+      payTd.appendChild(payLabel);
+
+      const finishTd = document.createElement("td");
+      const finishInput = document.createElement("input");
+      finishInput.type = "number";
+      finishInput.min = "1";
+      finishInput.max = String(Math.max(n, 1));
+      finishInput.value = row.finish == null ? "" : String(row.finish);
+      finishInput.addEventListener("input", () => {
+        const v = parseInt(finishInput.value, 10);
+        row.finish = Number.isFinite(v) ? v : null;
+        renderRoster();
+      });
+      finishTd.appendChild(finishInput);
+
+      const rmTd = document.createElement("td");
+      const rmBtn = document.createElement("button");
+      rmBtn.className = "row-remove";
+      rmBtn.setAttribute("aria-label", "Remove GM");
+      rmBtn.textContent = "✕";
+      rmBtn.addEventListener("click", () => {
+        rows = rows.filter((r) => r.id !== row.id);
+        renderRoster();
+      });
+      rmTd.appendChild(rmBtn);
+
+      tr.appendChild(nameTd);
+      tr.appendChild(payTd);
+      tr.appendChild(finishTd);
+      tr.appendChild(rmTd);
+      rosterBody.appendChild(tr);
+    });
+    onFieldChanged();
+  }
+
+  function onFieldChanged() {
+    if (draw) resetDraw();
+    validate();
+    renderPreview();
+  }
+
+  function validate() {
+    const n = rows.length;
+    if (n === 0) {
+      validationMsg.textContent = "Add at least one GM to get started.";
+      validationMsg.className = "validation";
+      lockInBtn.disabled = true;
+      return false;
+    }
+    const emptyName = rows.some((r) => !r.name.trim());
+    if (emptyName) {
+      validationMsg.textContent = "Every GM needs a name.";
+      validationMsg.className = "validation err";
+      lockInBtn.disabled = true;
+      return false;
+    }
+    const finishes = rows.map((r) => r.finish);
+    const seen = new Map();
+    const dupes = new Set();
+    finishes.forEach((f) => {
+      if (f == null) return;
+      seen.set(f, (seen.get(f) || 0) + 1);
+      if (seen.get(f) > 1) dupes.add(f);
+    });
+    const missing = [];
+    for (let i = 1; i <= n; i++) if (!seen.has(i)) missing.push(i);
+    const outOfRange = finishes.some((f) => f == null || f < 1 || f > n);
+
+    if (dupes.size || missing.length || outOfRange) {
+      const parts = [];
+      if (missing.length) parts.push("missing " + missing.join(", "));
+      if (dupes.size) parts.push("duplicated " + [...dupes].join(", "));
+      validationMsg.textContent =
+        "Finish positions must be exactly 1–" + n + " with no gaps or repeats" +
+        (parts.length ? " (" + parts.join("; ") + ")." : ".");
+      validationMsg.className = "validation err";
+      lockInBtn.disabled = true;
+      return false;
+    }
+
+    const payCount = rows.filter((r) => r.pay).length;
+    validationMsg.textContent = payCount
+      ? "Field looks good — " + payCount + " GM" + (payCount === 1 ? "" : "s") + " in the lotto pool."
+      : "Field looks good — no pay-league GMs, so there's nothing to draw for.";
+    validationMsg.className = "validation ok";
+    lockInBtn.disabled = payCount === 0;
+    return true;
+  }
+
+  function badgeHtml(isPay) {
+    return isPay ? '<span class="badge pay">Pay -$</span>' : '<span class="badge free">Free</span>';
+  }
+
+  function renderPreview() {
+    if (!validate()) {
+      previewBody.innerHTML = '<p class="hint" style="margin:0;">Fix the roster above to see the homepage preview.</p>';
+      return;
+    }
+    const n = rows.length;
+    const bySlot = new Map(rows.map((r) => [r.finish, r]));
+    let html = '<div class="table-scroll"><table class="order-table"><thead><tr><th>Team</th><th>Rank</th></tr></thead><tbody>';
+    for (let slot = 1; slot <= n; slot++) {
+      const r = bySlot.get(slot);
+      const cell = r.pay ? '<span class="lotto-placeholder">Lotto Pick -$</span>' : r.name;
+      html += "<tr><td>" + cell + "</td><td class='mono'>" + slot + "</td></tr>";
+    }
+    html += "</tbody></table></div>";
+
+    const payRows = rows.filter((r) => r.pay).sort((a, b) => a.finish - b.finish);
+    if (payRows.length) {
+      html += '<div class="participants-list"><p class="heading">Lotto Draft Participants:</p><ul>';
+      payRows.forEach((r) => {
+        html += "<li><span class='p-name'>" + r.name + "</span> -$ &nbsp;--&nbsp; " + r.finish + "</li>";
+      });
+      html += "</ul></div>";
+    }
+    previewBody.innerHTML = html;
+  }
+
+  function buildOrdinalMap(slots) {
+    const sorted = [...slots].sort((a, b) => a - b);
+    const map = new Map();
+    sorted.forEach((s, i) => map.set(s, i + 1));
+    return map;
+  }
+
+  function canPerfectMatch(gmFinishes, slots, ord) {
+    const matchOfSlot = new Map();
+    function tryAugment(gmFinish, visited) {
+      for (const slot of slots) {
+        if (Math.abs(ord.get(slot) - ord.get(gmFinish)) <= 3 && !visited.has(slot)) {
+          visited.add(slot);
+          if (!matchOfSlot.has(slot) || tryAugment(matchOfSlot.get(slot), visited)) {
+            matchOfSlot.set(slot, gmFinish);
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+    let count = 0;
+    for (const gmFinish of gmFinishes) {
+      if (tryAugment(gmFinish, new Set())) count++;
+    }
+    return count === gmFinishes.length;
+  }
+
+  function runDraw(lottoGMs, n) {
+    const finishToName = new Map(lottoGMs.map((g) => [g.finish, g.name]));
+    // Ordinal = this GM's/slot's rank (1 = best) among just the contested lotto
+    // slots themselves, fixed for the whole draw — the ±3 cap is measured in
+    // these ranks, not in raw slot numbers.
+    const ord = buildOrdinalMap(lottoGMs.map((g) => g.finish));
+    let remainingGMs = lottoGMs.map((g) => g.finish);
+    let remainingSlots = [...remainingGMs].sort((a, b) => a - b);
+    const orderedSlots = [...remainingSlots]; // best slot first: this IS the odds-determining order
+    const assignment = new Map();
+    const drawLog = [];
+
+    for (const slot of orderedSlots) {
+      const otherSlots = remainingSlots.filter((s) => s !== slot);
+      const candidates = remainingGMs.filter((f) => Math.abs(ord.get(slot) - ord.get(f)) <= 3);
+      const feasible = candidates.filter((f) => {
+        const otherGMs = remainingGMs.filter((x) => x !== f);
+        return canPerfectMatch(otherGMs, otherSlots, ord);
+      });
+      const weights = feasible.map((f) => weightFor(f, n));
+      const total = weights.reduce((a, b) => a + b, 0);
+      let r = Math.random() * total;
+      let winner = feasible[feasible.length - 1];
+      for (let i = 0; i < feasible.length; i++) {
+        if (r < weights[i]) { winner = feasible[i]; break; }
+        r -= weights[i];
+      }
+      assignment.set(slot, winner);
+      drawLog.push({
+        slot,
+        slotOrdinal: ord.get(slot),
+        winnerFinish: winner,
+        winnerOrdinal: ord.get(winner),
+        winnerName: finishToName.get(winner),
+        weight: weightFor(winner, n),
+        eligible: feasible.map((f) => ({ finish: f, name: finishToName.get(f), weight: weightFor(f, n) })),
+      });
+      remainingGMs = remainingGMs.filter((f) => f !== winner);
+      remainingSlots = otherSlots;
+    }
+    return { assignment, drawLog };
+  }
+
+  function sleep(ms) { return new Promise((res) => setTimeout(res, ms)); }
+
+  function renderLockedTable() {
+    const n = draw.n;
+    const bySlot = new Map();
+    draw.nonLotto.forEach((g) => bySlot.set(g.finish, { name: g.name, pay: false }));
+
+    let html = "<thead><tr><th>Team</th><th>Rank</th></tr></thead><tbody>";
+    for (let slot = 1; slot <= n; slot++) {
+      const g = bySlot.get(slot);
+      if (g) {
+        html += "<tr><td>" + g.name + " " + badgeHtml(false) + "</td><td class='mono'>" + slot + "</td></tr>";
+      } else {
+        html += '<tr data-slot="' + slot + '"><td><span class="hidden-name">🔒 Hidden ' + badgeHtml(true) + '</span></td><td class="mono">' + slot + "</td></tr>";
+      }
+    }
+    html += "</tbody>";
+    orderTable.innerHTML = html;
+  }
+
+  function updateProgress() {
+    const total = draw.revealOrder.length;
+    const done = draw.revealIndex;
+    progressText.textContent = "Revealed " + done + " of " + total + " lotto pick" + (total === 1 ? "" : "s") + ".";
+    if (done < total) {
+      nextUpText.textContent = "Next up: Slot #" + draw.revealOrder[done].slot;
+    } else {
+      nextUpText.textContent = "";
+    }
+    revealNextBtn.disabled = done >= total;
+    revealAllBtn.disabled = done >= total;
+  }
+
+  async function revealOne(instant) {
+    if (!draw || draw.revealIndex >= draw.revealOrder.length) return;
+    const entry = draw.revealOrder[draw.revealIndex];
+    const tr = orderTable.querySelector('tr[data-slot="' + entry.slot + '"]');
+    const nameCell = tr.querySelector("td:first-child");
+
+    if (!instant && !reduceMotion) {
+      const names = entry.eligible.map((e) => e.name);
+      const cycles = names.length > 1 ? 9 : 0;
+      for (let i = 0; i < cycles; i++) {
+        nameCell.innerHTML = '<span class="hidden-name drawing">🎲 ' + names[i % names.length] + "…</span>";
+        await sleep(65 + i * 5);
+      }
+    }
+
+    const delta = entry.slotOrdinal - entry.winnerOrdinal;
+    let deltaHtml;
+    if (delta > 0) deltaHtml = '<span class="slot-delta up">▲ up ' + delta + "</span>";
+    else if (delta < 0) deltaHtml = '<span class="slot-delta down">▼ down ' + Math.abs(delta) + "</span>";
+    else deltaHtml = '<span class="slot-delta flat">held</span>';
+
+    nameCell.innerHTML = entry.winnerName + " " + badgeHtml(true) + deltaHtml;
+    tr.classList.remove("next-up");
+    tr.classList.add("just-revealed");
+    draw.revealIndex += 1;
+    updateProgress();
+
+    const stillToGo = draw.revealOrder[draw.revealIndex];
+    if (stillToGo) {
+      const nextTr = orderTable.querySelector('tr[data-slot="' + stillToGo.slot + '"]');
+      if (nextTr) nextTr.classList.add("next-up");
+    }
+
+    if (draw.revealIndex === draw.revealOrder.length) finalize();
+  }
+
+  function finalize() {
+    draw.complete = true;
+    let auditHtml = "<thead><tr><th>Order drawn</th><th>Slot</th><th>Winner</th><th>Weight</th><th>Eligible pool at the time</th></tr></thead><tbody>";
+    draw.drawLog.forEach((d, i) => {
+      const pool = d.eligible.map((e) => e.name + " (" + e.weight + ")").join(", ");
+      auditHtml += "<tr><td class='mono'>" + (i + 1) + "</td><td class='mono'>" + d.slot + "</td><td>" + d.winnerName +
+        "</td><td class='mono'>" + d.weight + "</td><td class='cand-list'>" + pool + "</td></tr>";
+    });
+    auditHtml += "</tbody>";
+    auditTable.innerHTML = auditHtml;
+
+    const bySlot = new Map();
+    draw.nonLotto.forEach((g) => bySlot.set(g.finish, g.name));
+    draw.drawLog.forEach((d) => bySlot.set(d.slot, d.winnerName));
+    const rowsHtml = [];
+    for (let slot = 1; slot <= draw.n; slot++) rowsHtml.push("<tr><td>" + bySlot.get(slot) + "</td><td>" + slot + "</td></tr>");
+    copyOut.value = rowsHtml.join("\n");
+    copyOut.hidden = true;
+
+    resultsFooter.hidden = false;
+    lockInBtn.disabled = false;
+    lockInBtn.textContent = "Run Again";
+    setRosterEditable(true);
+  }
+
+  function resetDraw() {
+    draw = null;
+    orderTableWrap.hidden = true;
+    resultsFooter.hidden = true;
+    orderTable.innerHTML = "";
+    lockInBtn.textContent = "Lock In the Draw";
+    runHint.textContent = "Locking in computes the full result instantly and privately — nothing is shown yet. Once locked, reveal picks one at a time, worst slot first, for the room.";
+  }
+
+  function lockInDraw() {
+    if (!validate()) return;
+    const n = rows.length;
+    const nonLotto = rows.filter((r) => !r.pay).map((r) => ({ name: r.name, finish: r.finish }));
+    const lotto = rows.filter((r) => r.pay).map((r) => ({ name: r.name, finish: r.finish }));
+
+    if (lotto.length === 0) return;
+
+    const { drawLog } = runDraw(lotto, n);
+    draw = {
+      n,
+      nonLotto,
+      drawLog,
+      revealOrder: [...drawLog].reverse(), // worst slot first for the live reveal
+      revealIndex: 0,
+      complete: false,
+    };
+
+    setRosterEditable(false);
+    lockInBtn.disabled = true;
+    lockInBtn.textContent = "Locked — revealing…";
+    runHint.textContent = "Locked in. Nobody knows the results yet — reveal them below, worst pick first.";
+    orderTableWrap.hidden = false;
+    resultsFooter.hidden = true;
+    renderLockedTable();
+    updateProgress();
+    if (draw.revealOrder.length) {
+      const firstTr = orderTable.querySelector('tr[data-slot="' + draw.revealOrder[0].slot + '"]');
+      if (firstTr) firstTr.classList.add("next-up");
+    }
+  }
+
+  async function revealAll() {
+    revealAllBtn.disabled = true;
+    revealNextBtn.disabled = true;
+    while (draw && draw.revealIndex < draw.revealOrder.length) {
+      await revealOne(true);
+    }
+  }
+
+  $("#addRow").addEventListener("click", () => {
+    rows.push(newRow({ finish: null }));
+    renderRoster();
+  });
+  $("#clearAll").addEventListener("click", () => { loadRows([]); });
+  $("#loadCurrent").addEventListener("click", () => { loadRows(CURRENT_SEASON); });
+  lockInBtn.addEventListener("click", lockInDraw);
+  revealNextBtn.addEventListener("click", () => revealOne(false));
+  revealAllBtn.addEventListener("click", revealAll);
+  copyBtn.addEventListener("click", () => {
+    copyOut.hidden = false;
+    copyOut.focus();
+    copyOut.select();
+  });
+
+  loadRows(CURRENT_SEASON);
+})();
+</script>
+
+</body>
+</html>
