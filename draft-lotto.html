@@ -383,7 +383,7 @@
       <li><strong>Non-pay GMs</strong> keep their exact finish from last season as next season's draft slot. No lottery, no change.</li>
       <li><strong>Pay-league GMs</strong> each contribute their own finish position as a slot up for grabs — only those slots get reshuffled, and only among the pay-league group.</li>
       <li><strong>Weight</strong> = (Total GMs − finish + 2). A 2nd-place finish starts at the top of the field; weight tapers down toward last.</li>
-      <li><strong>Bonus balls</strong>: +42 weight for finishing 2nd, +12 for finishing 3rd — tuned so, among this year's contested field, the 2nd-place finisher lands the top pick more than half the time.</li>
+      <li><strong>Bonus balls</strong>: +30 weight for finishing 2nd, +15 for finishing 3rd — tuned so, among this year's contested field, the 2nd-place finisher lands the top pick close to (but just under) half the time, with 3rd place a strong runner-up rather than a distant third choice.</li>
       <li><strong>Champion penalty</strong>: a pay-league GM who wins the whole league gets weight forced down to 1 — worse odds than dead last.</li>
       <li><strong>±3 cap</strong>: rank the contested slots themselves best-to-worst (this year that's #2, #3, #8, #9, #12, #15 → positions 1st through 6th among <em>themselves</em>). Nobody can land more than 3 of those positions better or worse than where their own finish sits in that ranking — not 3 raw slot numbers, which would unfairly wall off anyone whose slot isn't numerically close to the top.</li>
       <li><strong>Draw order vs. reveal order</strong>: the actual weighted math always runs top slot first, worst slot last — that's what determines the odds. But when you're showing it to the room, picks are revealed worst-to-best instead, so the drama builds toward the top pick at the end. The math doesn't change, only the order you find out about it.</li>
@@ -508,7 +508,7 @@
   function weightFor(finish, n) {
     if (finish === 1) return 1;
     const base = n - finish + 2;
-    const bonus = finish === 2 ? 42 : finish === 3 ? 12 : 0;
+    const bonus = finish === 2 ? 30 : finish === 3 ? 15 : 0;
     return base + bonus;
   }
 
