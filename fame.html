@@ -4,206 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WannabeGM Hockey League – Hall of Fame</title>
-  
+
   <!-- Favicon (couch/sticks logo base64 placeholder – replace with your PNG later) -->
   <link rel="icon" type="image/jpeg" href="./Wannabelogo.jpeg" />
-  
-  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wannabegm.css">
 
   <style>
-    :root {
-      --bg: #0f1117;
-      --text: #e2e8f0;
-      --accent: #60a5fa;
-      --accent-dark: #3b82f6;
-      --highlight: #ef4444;
-      --card-bg: #1e293b;
-      --border: #334155;
-      --logo-shadow: 0 0 20px rgba(96,165,250,0.4);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(96,165,250,0.05) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(239,68,68,0.05) 0%, transparent 20%);
-      background-attachment: fixed;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-    header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .logo-container {
-      margin-bottom: 1.5rem;
-    }
-    .logo {
-      max-width: 280px;
-      height: auto;
-      filter: drop-shadow(var(--logo-shadow));
-    }
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 20px rgba(96,165,250,0.3);
-    }
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 1.5rem 0 2rem;
-    }
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      transition: all 0.3s;
-      background: rgba(96,165,250,0.1);
-    }
-    .nav-links a:hover {
-      background: rgba(96,165,250,0.25);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-    section {
-      margin: 3rem 0;
-      padding: 2rem;
-      background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-    h2 {
-      font-family: 'Poppins', sans-serif;
-      color: var(--accent);
-      text-align: left;
-      padding-left: 0;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.5rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 0.95rem;
-    }
-    th, td {
-      padding: 0.8rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    th {
-      background: rgba(96,165,250,0.1);
-      color: var(--accent);
-      font-weight: 600;
-    }
-    tr:hover {
-      background: rgba(96,165,250,0.05);
-    }
-    .highlight {
-      font-weight: bold;
-      color: var(--highlight);
-    }
-    .footer {
-      text-align: center;
-      padding: 2rem 0;
-      color: #64748b;
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-      margin-top: 3rem;
-    }
-    @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      .logo { max-width: 240px; }
-      .nav-links { flex-direction: column; gap: 0.8rem; }
-      section { padding: 1.5rem; }
-      table { font-size: 0.9rem; }
-      th, td { padding: 0.6rem; }
-    }
-    .table-wrapper {
-  overflow-x: auto;
-  margin: 1rem 0;
-  border-radius: 8px; /* optional: rounded corners for the scroll area */
-  border: 1px solid var(--border); /* optional: subtle border */
-}
-.table-wrapper table {
-  min-width: 1200px; /* forces horizontal scroll if screen is smaller */
-  width: 100%;
-}
-.full-shaded-table {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow-x: auto;
-  margin: 1rem 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.full-shaded-table table {
-  width: 100%;
-  min-width: 1400px; /* Adjust this value higher if needed to force horizontal scroll on smaller screens */
-  border-collapse: collapse;
-}
-.full-shaded-table th,
-.full-shaded-table td {
-  padding: 0.8rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-}
-.full-shaded-table th {
-  background: rgba(96,165,250,0.1);
-  color: var(--accent);
-  font-weight: 600;
-}
-.full-shaded-table tr:hover {
-  background: rgba(96,165,250,0.05);
-}
+    /* Page-specific: highlight emphasis on standout table cells */
+    .highlight { font-weight: bold; color: var(--accent); }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <div class="logo-container">
-      <img src="./Wannabelogo.jpeg" 
-           alt="WannabeGM Hockey League Logo" class="logo">
-    </div>
-    <h1>WannabeGM Hockey League</h1>
-    <p class="subtitle">Hall of Fame</p>
+<header><div class="wrap bar">
+  <a class="brand" href="index.html" aria-label="WannabeGM home"><span class="brandplate"><img src="wannabegm-logo-transparent.png" alt="WannabeGM"></span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="links.html">Links</a>
+    <a href="keepers.html">Keepers</a>
+    <a href="awards.html">Awards</a>
+    <a href="media.html">Media</a>
+    <a href="fame.html" class="active">Hall of Fame</a>
+  </nav>
+</div></header>
 
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="index.html">← Home</a>
-      <a href="links.html">Links</a>
-      <a href="keepers.html">Keepers</a>
-      <a href="media.html">Media</a>
-      <!-- Add more pages here if needed -->
-    </nav>
-  </header>
-
-    <main class="content">
-        <div class="container">
-            <section class="commish-notes">
-                <h2>Hall of Fame - WannabeGM Champions</h2>
+<div class="wrap">
+  <section>
+    <div class="head"><h2>Hall of Fame — WannabeGM Champions</h2></div>
+    <div class="divider"></div>
+    <div class="card">
                 <p>Season 1 - 2003 Puck it (Symmington)    </p>
                 <p>Season 2 - 2005 Corporate Clergyman (Harrington)</p>
                 <p>Season 3 - 2006 IC DeadPeople (Jaye)    </p>
@@ -227,15 +59,14 @@
                 <p>Season 21 - 2024 Deca! Double Corporate Digits!</p>
                 <p>Season 22 - 2025 (Boog) Blazed in Glory (Jadrian)</p>
                 <p>Season 23 - 2026 TBD</p>
+    </div>
+  </section>
 
-            </section>
-<br><br>
-<main class="content">
-        <div class="commish-yearly">
-            <section class="container">
-
-        <h2>Team Performance Summary</h2>
-                <table>
+  <section>
+    <div class="head"><h2>Team Performance Summary</h2></div>
+    <div class="divider"></div>
+    <div class="card">
+      <div class="table-wrap"><table class="tbl">
             <tr>
                 <th>Team</th>
                 <th>Years Played</th>
@@ -333,8 +164,8 @@
                 <td>0</td>
                 <td>1</td>
             </tr>
-            
-            
+
+
             <tr>
                 <td>Duncan</td>
                 <td>16</td>
@@ -407,7 +238,7 @@
                 <td>0</td>
                 <td>0</td>
             </tr>
-            
+
             <tr>
                 <td>Phil</td>
                 <td>3</td>
@@ -464,19 +295,15 @@
                 <td>0</td>
                 <td>1</td>
             </tr>
-            
-        </table>
-      </div>
-</section>
------------------------
+      </table></div>
+    </div>
+  </section>
 
-<br><br>
-<main class="content">
-        <div class="full-shaded-table">
-            <section class="container">
-   
-    <table>
-        <caption><h2>Yearly Rankings</caption></h2>
+  <section>
+    <div class="head"><h2>Yearly Rankings</h2></div>
+    <div class="divider"></div>
+    <div class="card">
+      <div class="table-wrap"><table class="tbl">
         <tr>
             <th>Year</th>
             <th>1</th>
@@ -587,20 +414,20 @@
         </tr>
         <tr>
             <td>2009</td>
-            <td>Harrington</td> 
-            <td>Symmington</td> 
-            <td>Jadrian</td>  
-            <td>Egan</td> 
-            <td>Duggan</td> 
-            <td>Kurtis</td> 
-            <td>Patrick</td>  
-            <td>Mulvihill</td>  
-            <td>Jaye</td> 
-            <td>Blakely</td>  
-            <td>Roy</td>  
-            <td></td> 
-            <td></td> 
-            <td></td> 
+            <td>Harrington</td>
+            <td>Symmington</td>
+            <td>Jadrian</td>
+            <td>Egan</td>
+            <td>Duggan</td>
+            <td>Kurtis</td>
+            <td>Patrick</td>
+            <td>Mulvihill</td>
+            <td>Jaye</td>
+            <td>Blakely</td>
+            <td>Roy</td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td></td>
         </tr>
         <tr>
@@ -907,19 +734,15 @@
 
         </tr>
 
-    </table>
-    
+      </table></div>
+    </div>
+  </section>
 
-</div>
-</section>
----------------          
-<br><br>
-<main class="content">
-        <div class="full-shaded-table">
-            <section class="container">
-   
-    <table>
-        <caption><h2>Yearly Breakout</caption></h2>
+  <section>
+    <div class="head"><h2>Yearly Breakout</h2></div>
+    <div class="divider"></div>
+    <div class="card">
+      <div class="table-wrap"><table class="tbl">
         <tr>
             <th>Team</th>
             <th>Years Played</th>
@@ -1048,7 +871,7 @@
 <td>13</td>
 <td>7</td>
 
-         
+
 </tr>
 
 <tr>
@@ -1076,7 +899,7 @@
 <td>2</td>
 <td>4</td>
 
-         
+
 </tr>
 <tr>
 <td>Jadrian</td>
@@ -1155,7 +978,7 @@
 <td>7</td>
 <td>12</td>
 <td></td>
-       
+
 </tr>
 <tr>
 <td>Blakely</td>
@@ -1180,7 +1003,7 @@
 <td></td>
 <td></td>
 <td></td>
-      
+
 </tr>
 
 
@@ -1458,7 +1281,7 @@
 <td></td>
 <td></td>
 <td></td>
-      
+
 
 </tr>
 <td>Phil</td>
@@ -1660,15 +1483,11 @@
 
 </tr>
 
-    </table>
-    
-
+      </table></div>
+    </div>
+  </section>
 </div>
-</section>
 
-
-    <footer>
-        <p>© WannabeGM Fantasy Hockey League. Skate or be skated.</p>
-    </footer>
+<footer><div class="wrap">WannabeGM Hockey League &middot; Season 23 &middot; Maintained by Harrington</div></footer>
 </body>
 </html>
