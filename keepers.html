@@ -186,6 +186,26 @@
       border-radius: 8px;
       margin: 1rem 0;
     }
+    .archive-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0 0 1.5rem;
+      overflow-x: auto;
+    }
+    .archive-card:last-child { margin-bottom: 0; }
+    .archive-card img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+    }
+    .archive-caption {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin: 0.6rem 0 0;
+    }
     @media (max-width: 768px) {
       h1 { font-size: 2.5rem; }
       .logo { max-width: 240px; }
@@ -288,9 +308,9 @@ Draft Picks Acquired: Round 6 (Anthony), Round 8 (Anthony)<br>
 
 <div id="Egan" class="tabcontent">
 <i><font color="#87CEEB">  
-Potential Rookie Keepers: <i><font color="#87CEEB">Danila Yurov, Dennis Hildeby, Axel Sandin-Pellikka, Zakhar Bardakov</font></i><br>
+Potential Rookie Keepers: <i><font color="olive">Dennis Hildeby</font></i>, <i><font color="#87CEEB">Danila Yurov, Axel Sandin-Pellikka</font></i><br>
 Potential Sophomore Keeper: <i><font color="olive">Matvei Michkov<br></i></font>
-Potential Super Keeper: <i><font color="#87CEEB">Mitch Marner, Tage Thompson</font></i><br>
+Potential Super Keeper: <i><font color="olive">Mitch Marner</font></i><br>
 Draft Picks Acquired: <br>
 2024-2025 Draft Picks: R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19<br>
 <span onclick="this.parentElement.style.display='none'">x</span>
@@ -439,7 +459,6 @@ Social Media:<br>
         
 <span onclick="this.parentElement.style.display='none'">x</span>
 </div>
-</div>
 
 <div id="25" class="tabcontent">
         <b><u><font color="red">--Summer Trades 2025-26-- </font></u></b><br>
@@ -451,7 +470,6 @@ Social Media:<br>
         To Harrington: R16 (Symmington)<br><br>
         
 <span onclick="this.parentElement.style.display='none'">x</span>
-</div>
 </div>
 
 <div id="24" class="tabcontent">
@@ -513,16 +531,21 @@ Social Media:<br>
         
 <span onclick="this.parentElement.style.display='none'">x</span>
 </div>
-     <br>
-<br><br>
-<h4><b><u>Keepers Archive:</h4><br></u>
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'keeper')">Keepers Archive</button>
-  
-</div>
+    <h3 style="margin-top: 2.5rem;">Keepers Archive</h3>
+    <p>Full keeper history, Overall tab (2008-09 through 2026-27). Click on the button to view:</p>
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'keeper')">Keepers Archive</button>
+    </div>
 
 <div id="keeper" class="tabcontent">
-<img src="Keepers screen.png" alt="Keepers up to 2022-23">        
+  <div class="archive-card">
+    <img src="keepers-archive-2008-2022.png" alt="Keepers Archive, Overall tab, 2008-09 through 2021-22 seasons">
+    <p class="archive-caption">2008-09 through 2021-22</p>
+  </div>
+  <div class="archive-card">
+    <img src="keepers-archive-2022-2027.png" alt="Keepers Archive, Overall tab, 2022-23 through 2026-27 seasons">
+    <p class="archive-caption">2022-23 through 2026-27</p>
+  </div>
 <span onclick="this.parentElement.style.display='none'">x</span>
 </div>
 
