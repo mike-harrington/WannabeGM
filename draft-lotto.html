@@ -383,7 +383,7 @@
       <li><strong>Non-pay GMs</strong> keep their exact finish from last season as next season's draft slot. No lottery, no change.</li>
       <li><strong>Pay-league GMs</strong> each contribute their own finish position as a slot up for grabs — only those slots get reshuffled, and only among the pay-league group.</li>
       <li><strong>Weight</strong> = (Total GMs − finish + 2). A 2nd-place finish starts at the top of the field; weight tapers down toward last.</li>
-      <li><strong>Bonus balls</strong>: +30 weight for finishing 2nd, +15 for finishing 3rd — tuned so, among this year's contested field, the 2nd-place finisher lands the top pick close to (but just under) half the time, with 3rd place a strong runner-up rather than a distant third choice.</li>
+      <li><strong>Bonus balls</strong>: +25 weight for finishing 2nd, +10 for finishing 3rd, +1 for finishing anywhere else in the overall top 10 (4th through 10th) — the podium spots get the biggest boost toward the top pick, with a small consolation bump for the rest of the top 10 so it isn't a two-team race. 11th place and worse get no bonus at all, same as before.</li>
       <li><strong>Champion penalty</strong>: a pay-league GM who wins the whole league gets weight forced down to 1 — worse odds than dead last.</li>
       <li><strong>±3 cap (±2 for a top-5 overall finish)</strong>: rank the contested slots themselves best-to-worst (this year that's #2, #3, #8, #9, #12, #15 → positions 1st through 6th among <em>themselves</em>). Nobody can land more of those positions better or worse than where their own finish sits in that ranking — measured in ranking spots among the contested slots, not raw slot numbers, which would unfairly wall off anyone whose slot isn't numerically close to the top. The cap is 3 spots for a GM who finished 6th or worse overall, tightened to 2 spots for a GM who finished in the league's overall top 5.</li>
       <li><strong>Draw order vs. reveal order</strong>: the actual weighted math always runs top slot first, worst slot last — that's what determines the odds. But when you're showing it to the room, picks are revealed worst-to-best instead, so the drama builds toward the top pick at the end. The math doesn't change, only the order you find out about it.</li>
@@ -515,7 +515,10 @@
   function weightFor(finish, n) {
     if (finish === 1) return 1;
     const base = n - finish + 2;
-    const bonus = finish === 2 ? 30 : finish === 3 ? 15 : 0;
+    let bonus = 0;
+    if (finish === 2) bonus = 25;
+    else if (finish === 3) bonus = 10;
+    else if (finish <= 10) bonus = 1; // top-10 overall, outside the podium
     return base + bonus;
   }
 
