@@ -788,7 +788,10 @@
       }
     }
 
-    const delta = entry.slotOrdinal - entry.winnerOrdinal;
+    // Ordinal 1 = best/earliest slot, so landing in a *lower*-numbered slot
+    // than your own original ordinal is a draft-value improvement ("up"),
+    // even though the raw slot number itself went down.
+    const delta = entry.winnerOrdinal - entry.slotOrdinal;
     let deltaHtml;
     if (delta > 0) deltaHtml = '<span class="slot-delta up">▲ up ' + delta + "</span>";
     else if (delta < 0) deltaHtml = '<span class="slot-delta down">▼ down ' + Math.abs(delta) + "</span>";
