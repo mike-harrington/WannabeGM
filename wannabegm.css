@@ -96,6 +96,8 @@ section{padding:26px 0}
 .modal .tag{display:inline-block;font-size:12px;color:var(--muted);background:var(--chip);padding:3px 10px;border-radius:999px}
 .modal .desc{margin:14px 0 18px} .modal .winner{border-top:1px solid var(--line);padding-top:14px;font-size:14px}
 .modal .winner b{font-family:var(--display);font-weight:400;color:var(--accent)}
+.modal .badge{display:block;width:100%;max-height:60vh;object-fit:contain;border-radius:calc(var(--radius) - 4px);margin:4px 0 12px}
+.modal .badge[hidden],.modal .bigico[hidden]{display:none}
 
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}
 .note{background:var(--chip);border:1px dashed var(--line);border-radius:var(--radius);padding:12px 14px;font-size:13px;color:var(--muted);margin-top:16px}
